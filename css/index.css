@@ -1,5 +1,6 @@
 html,body {
     height: 100%;
+    overflow: hidden;
 }
 #index {
     width: 100%;
@@ -17,7 +18,7 @@ html,body {
     text-align: center;
     position: absolute;
     z-index: 100;
-    /*display: none;*/
+    display: none;
 }
 #index .first .people {
     display: inline-block;
@@ -53,7 +54,7 @@ html,body {
     background-size: 100% auto;
     text-align: center;
     position: absolute;
-    /*display: none;*/
+    display: none;
 }
 #index .second .form {
     width: 100%;

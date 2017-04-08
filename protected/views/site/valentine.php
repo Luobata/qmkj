@@ -97,6 +97,7 @@
 
 
 <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=7c63439b906f40091eaa6cbdf8efde8a&plugin=AMap.DistrictSearch"></script>
+<script type="text/javascript" src="./js/lib/pixi.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="./js/lib/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="./js/lib/jquery-tap.js"></script>
 <script type="text/javascript" charset="utf-8" src="./js/lib/template.js"></script>

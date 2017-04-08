@@ -5,6 +5,7 @@ define(function(require, exports, module) {
     var taPosition;
     var meetPosition;
     var distance = 0;
+    var canvas = require('./canvas');
 
     var domInit = function () {
         dom.index = $('#index');
@@ -31,6 +32,8 @@ define(function(require, exports, module) {
             var my = lnglat.distance([myPosition.lng, myPosition.lat]);
             var ta = lnglat.distance([taPosition.lng, taPosition.lat]);
             distance  = ((my + ta) / 1000).toFixed(0);
+            dom.second.fadeOut(500);
+            canvas(dom.index);
         });
     };
 
@@ -131,6 +134,7 @@ define(function(require, exports, module) {
         provinceInit();
         dataInit();
         shareInit(true);
+        canvas(dom.index);
     };
 
     init();
