@@ -16,13 +16,19 @@ define(function (require, exports, module) {
         {
             text: '我们路过森林',
             color: '#ffffff'
+        },
+        {
+            text: '我们路过湖泊',
+            color: '#b5685d'
         }
     ];
     var imageArr = [
     ];
     var timer = 0;
+    var rate = window.rate;
 
     function drawText(obj) {
+        if (!obj) return;
         var style = new PIXI.TextStyle({
             fontFamily: 'microsoft yahei',
             fontSize: 21,
@@ -103,9 +109,39 @@ define(function (require, exports, module) {
                 ticker.stop();
                 ticker.remove();
                 drawSecond(background, background2, './images/desert.png', function (background2) {
-                    drawSecond(background2, background3, './images/forest.png', function () {
+                    drawSecond(background2, background3, './images/forest.png', function (background2) {
+                        var con = getThird();;
+                        toggleBackground(background2, con, function () {
+                            drawThird(con.children[1]);
+                        });
                     });
                 });
+            }
+        });
+        ticker.start();
+    }
+
+    function toggleBackground(back1, back2, fn) {
+        var ticker = PIXI.ticker.shared;
+        ticker.autoStart = false;
+
+        back2.alpha = 0;
+        back1.alpha = 1;
+
+        drawText(text.shift());
+        ticker.stop();
+        timer = 0;
+        ticker.add(function (time) {
+            timer++;
+            if (back1.alpha > 0 && back2.alpha < 1) {
+                back1.alpha -= 0.01;
+                back2.alpha += 0.01
+            }
+
+            if (timer === 100) {
+                ticker.stop();
+                ticker.remove();
+                fn && fn(back2);
             }
         });
         ticker.start();
@@ -136,13 +172,71 @@ define(function (require, exports, module) {
                 background2.alpha += 0.01
             }
 
-            if (timer === 200) {
+            if (timer === 100) {
                 ticker.stop();
                 ticker.remove();
                 fn && fn(background2);
             }
         });
         ticker.start();
+    }
+
+    function drawThird(boat) {
+        // 绘制船
+        var ticker = PIXI.ticker.shared;
+
+        ticker.stop();
+        timer = 0;
+        var flag = true;
+        ticker.add(function (time) {
+            timer++;
+            if (timer < 200) {
+                if (!flag) {
+                    boat.rotation -= 0.0005;
+                    if (boat.rotation < -0.05) {
+                        flag = true; //向上
+                    }
+                } else {
+                    boat.rotation += 0.0005;
+                    if (boat.rotation > 0.05) {
+                        flag = false; //向下
+                    }
+                }
+            } else {
+                ticker.stop();
+                ticker.remove();
+            }
+        });
+        ticker.start();
+    }
+
+    function getThird() {
+        var container = new PIXI.Container();
+        var images = PIXI.Sprite.fromImage('./images/rock.png');
+        var boat = PIXI.Sprite.fromImage('./images/boat.png');
+        var background = PIXI.Sprite.fromImage('./images/sea2.png');
+
+        container.width = content.width();
+        container.height = content.height();
+
+        images.width = content.width();
+        images.height = content.height();
+        //images.alpha = 0;
+
+        boat.width = 265.5 * rate;
+        boat.height = 238.5 * rate;
+        boat.y = 222 * rate;
+        //boat.alpha = 0;
+        //
+        background.width = app.renderer.width;
+        background.height = app.renderer.height;
+
+        container.addChild(background);
+        container.addChild(boat);
+        container.addChild(images);
+
+        app.stage.addChild(container);
+        return container;
     }
 
     // canvas.init

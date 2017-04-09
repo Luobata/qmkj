@@ -14,6 +14,7 @@
     (function () {
         var width = document.body.clientWidth;
         var rate = parseInt(width * 12 / 320, 10);
+        window.rate = rate / 12;
         //var rate = width * 12 / 320;
         document.getElementsByTagName('html')[0].style['font-size'] =  rate + 'px';
     }());
