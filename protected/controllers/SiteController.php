@@ -32,6 +32,10 @@ class SiteController extends Controller
 		$this->renderPartial('valentine');
 	}
 
+    public function actionAdd() {
+		$this->renderPartial('valentine');
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */

@@ -5,7 +5,8 @@ define(function(require, exports, module) {
     var taPosition;
     var meetPosition;
     var distance = 0;
-    var canvas = require('./canvas');
+    var canvas = require('./canvas.js');
+    var log = require('./log.js');
 
     var domInit = function () {
         dom.index = $('#index');
@@ -25,6 +26,7 @@ define(function(require, exports, module) {
     var eventBind = function () {
         dom.test.bind('tap', function () {
             dom.first.fadeOut(500);
+            log(2);
         });
         dom.testS.bind('tap', function () {
             if (!myPosition || !taPosition || !meetPosition) return;
@@ -34,6 +36,7 @@ define(function(require, exports, module) {
             distance  = ((my + ta) / 1000).toFixed(0);
             dom.second.fadeOut(500);
             canvas(dom.index);
+            log(3);
         });
     };
 
@@ -128,6 +131,7 @@ define(function(require, exports, module) {
 
 
     var init = function () {
+        log(1);
         // enter();
         domInit();
         eventBind();

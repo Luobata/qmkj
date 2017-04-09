@@ -4,6 +4,9 @@ define(function (require, exports, module) {
     var background;
     var background2;
     var background3;
+    var sea;
+    var garden;
+    var castle;
     var text = [
         {
             text: '我们路过高山',
@@ -110,9 +113,9 @@ define(function (require, exports, module) {
                 ticker.remove();
                 drawSecond(background, background2, './images/desert.png', function (background2) {
                     drawSecond(background2, background3, './images/forest.png', function (background2) {
-                        var con = getThird();;
-                        toggleBackground(background2, con, function () {
-                            drawThird(con.children[1]);
+                        sea = getThird();;
+                        toggleBackground(background2, sea, function () {
+                            drawThird(sea.children[1]);
                         });
                     });
                 });
@@ -203,8 +206,10 @@ define(function (require, exports, module) {
                     }
                 }
             } else {
+                getGarden();
                 ticker.stop();
                 ticker.remove();
+                toggleBackground(sea, garden);
             }
         });
         ticker.start();
@@ -221,13 +226,11 @@ define(function (require, exports, module) {
 
         images.width = content.width();
         images.height = content.height();
-        //images.alpha = 0;
 
         boat.width = 265.5 * rate;
         boat.height = 238.5 * rate;
         boat.y = 222 * rate;
-        //boat.alpha = 0;
-        //
+
         background.width = app.renderer.width;
         background.height = app.renderer.height;
 
@@ -237,6 +240,28 @@ define(function (require, exports, module) {
 
         app.stage.addChild(container);
         return container;
+    }
+
+    function getGarden() {
+        var container = new PIXI.Container();
+        var images = PIXI.Sprite.fromImage('./images/garden.png');
+        images.width = content.width();
+        images.height = content.height();
+        container.addChild(images);
+
+        app.stage.addChild(container);
+        garden = container;
+    }
+
+    function getCastle() {
+        var container = new PIXI.Container();
+        var images = PIXI.Sprite.fromImage('./images/castle.png');
+        images.width = content.width();
+        images.height = content.height();
+        container.addChild(images);
+
+        app.stage.addChild(container);
+        castle = container;
     }
 
     // canvas.init
