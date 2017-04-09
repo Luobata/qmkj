@@ -209,7 +209,7 @@ define(function (require, exports, module) {
                 getGarden();
                 ticker.stop();
                 ticker.remove();
-                toggleBackground(sea, garden);
+                toggleBackground(sea, garden, gardenAnimate);
             }
         });
         ticker.start();
@@ -243,14 +243,49 @@ define(function (require, exports, module) {
     }
 
     function getGarden() {
+        // 花园 叶子飘落
         var container = new PIXI.Container();
         var images = PIXI.Sprite.fromImage('./images/garden.png');
+        var leaf = PIXI.Sprite.fromImage('./images/leaf.png');
+
         images.width = content.width();
         images.height = content.height();
+        leaf.width = 37.5 * rate;
+        leaf.height = 14 * rate;
+        leaf.x = 100;
+        leaf.y = 100;
+
         container.addChild(images);
+        container.addChild(leaf);
 
         app.stage.addChild(container);
         garden = container;
+    }
+
+    function gardenAnimate() {
+        var ticker = PIXI.ticker.shared;
+        var leafArr = garden.children;
+        var leaf = leafArr[1];
+        var flag = true;
+        timer = 0;
+
+        ticker.add(function () {
+            timer++;
+            if (!flag) {
+                leaf.rotation -= 0.0005;
+                if (leaf.rotation < -0.05) {
+                    flag = true; //向上
+                }
+            } else {
+                leaf.rotation += 0.0005;
+                if (leaf.rotation > 0.05) {
+                    flag = false; //向下
+                }
+            }
+            leaf.y += 0.1;
+            // console.log(leaf.y);
+        });
+        ticker.start();
     }
 
     function getCastle() {
