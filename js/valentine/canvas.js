@@ -290,6 +290,7 @@ define(function (require, exports, module) {
         boat.width = 291.5 * rate;
         boat.height = 284.5 * rate;
         boat.y = 192 * rate;
+        alert(boat.y);
 
         background.width = app.renderer.width;
         background.height = app.renderer.height;
