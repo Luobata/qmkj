@@ -93,6 +93,23 @@
             </div>
             <span class="testButton">测一测</span>
         </div>
+        <div class="third">
+            <div class="textWrap">
+                <div class="text">XX和XX</div>
+                <div class="text">经历了XXX公里</div>
+                <div class="text">终于在一起</div>
+            </div>
+            <div class="shareWrap">
+                <div class="again">
+                    <span>
+                        再测一次
+                    </span>
+                </div>
+                <div class="share">
+                    <span>分享到朋友圈</span>
+                </div>
+            </div>
+        </div>
     </div>
 
 

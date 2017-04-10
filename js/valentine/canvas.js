@@ -10,24 +10,9 @@ define(function (require, exports, module) {
     var sea;
     var garden;
     var castle;
-    var people = new PIXI.Container();
+    var complete;
+    var people;
     var text = [
-        {
-            text: '我们路过高山',
-            color: '#b96c40'
-        },
-        {
-            text: '我们路过沙漠',
-            color: '#b5685d'
-        },
-        {
-            text: '我们路过森林',
-            color: '#ffffff'
-        },
-        {
-            text: '我们路过湖泊',
-            color: '#b5685d'
-        }
     ];
     var imageArr = [
     ];
@@ -154,6 +139,7 @@ define(function (require, exports, module) {
             if (timer === 100) {
                 ticker.stop();
                 ticker.remove();
+                //app.destroy(app);
                 fn && fn(back2);
             }
         });
@@ -450,7 +436,8 @@ define(function (require, exports, module) {
         timer = 0;
         ticker.add(function () {
             timer++;
-            cloud.x += 0.05 * (1 + Math.random());
+            if (timer < 200) {
+                cloud.x += 0.05 * (1 + Math.random());
                 if (!flag) {
                     cloud.rotation -= 0.00005;
                     cloud.y -= 0.005 * (1 + Math.random());
@@ -464,13 +451,40 @@ define(function (require, exports, module) {
                         flag = false; //向下
                     }
                 }
+            } else {
+                ticker.stop();
+                ticker.remove();
+                complete && complete();
+                app.destroy(app);
+            }
         });
         ticker.start();
     }
 
     // canvas.init
-    var init = function (dom) {
+    var init = function (dom, fn) {
         var html = document.body;
+        people = new PIXI.Container();
+        imageArr = [];
+        text = [
+            {
+                text: '我们路过高山',
+                color: '#b96c40'
+            },
+            {
+                text: '我们路过沙漠',
+                color: '#b5685d'
+            },
+            {
+                text: '我们路过森林',
+                color: '#ffffff'
+            },
+            {
+                text: '我们路过湖泊',
+                color: '#b5685d'
+            }
+        ];
+        complete = fn;
 
         background = PIXI.Sprite.fromImage('./images/mountain.png');
 

@@ -7,11 +7,13 @@ define(function(require, exports, module) {
     var distance = 0;
     var canvas = require('./canvas.js');
     var log = require('./log.js');
+    var share = require('./share.js');
 
     var domInit = function () {
         dom.index = $('#index');
         dom.first = dom.index.find('.first');
         dom.second = dom.index.find('.second');
+        dom.third = dom.index.find('.third');
         dom.test = dom.first.find('.testButton');
         dom.testS = dom.second.find('.testButton');
         dom.provinces = dom.second.find('.province');
@@ -21,6 +23,9 @@ define(function(require, exports, module) {
         dom.myProvince = dom.second.find('.myProvince');
         dom.taProvince = dom.second.find('.taProvince');
         dom.meetProvince = dom.second.find('.meetProvince');
+
+        dom.again = dom.third.find('.again span');
+        dom.share = dom.third.find('.share span');
     };
 
     var eventBind = function () {
@@ -35,8 +40,21 @@ define(function(require, exports, module) {
             var ta = lnglat.distance([taPosition.lng, taPosition.lat]);
             distance  = ((my + ta) / 1000).toFixed(0);
             dom.second.fadeOut(500);
-            canvas(dom.index);
+            canvasInit();
             log(3);
+        });
+
+        dom.again.bind('tap', function () {
+            dom.third.fadeOut();
+            canvasInit();
+        });
+        dom.share.bind('tap', function () {
+            share.init(dom.index);
+        });
+    };
+    var canvasInit = function () {
+        canvas(dom.index, function () {
+            dom.third.fadeIn();
         });
     };
 
@@ -138,7 +156,7 @@ define(function(require, exports, module) {
         provinceInit();
         dataInit();
         shareInit(true);
-        canvas(dom.index);
+        canvasInit();
     };
 
     init();
