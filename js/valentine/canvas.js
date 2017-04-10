@@ -4,9 +4,13 @@ define(function (require, exports, module) {
     var background;
     var background2;
     var background3;
+    var mountain;
+    var desert;
+    var forest;
     var sea;
     var garden;
     var castle;
+    var people = new PIXI.Container();
     var text = [
         {
             text: '我们路过高山',
@@ -41,7 +45,8 @@ define(function (require, exports, module) {
         richText.x = content.width() / 2 - 60;
         richText.y = 102;
 
-        app.stage.addChild(richText);
+        //app.stage.addChild(richText);
+        return richText;
     }
 
     function walk() {
@@ -57,14 +62,17 @@ define(function (require, exports, module) {
             }
         });
         if (flag !== -1) {
-            imageArr[(flag + 1) % 2].alpha = 1;
+            imageArr[(flag + 1) % imageArr.length].alpha = 1;
         }
     }
 
     function drawFirst() {
-        drawText(text.shift());
+        var container = new PIXI.Container();
         var images = PIXI.Sprite.fromImage('./images/people2.png');
-        var images2 = PIXI.Sprite.fromImage('./images/people.png');
+        var images2 = PIXI.Sprite.fromImage('./images/people3.png');
+        var images3 = PIXI.Sprite.fromImage('./images/people4.png');
+        var images4 = PIXI.Sprite.fromImage('./images/people2.png');
+        var txt = drawText(text.shift());
         var ticker = PIXI.ticker.shared;
         var change = function () {
             var flag = -1;
@@ -80,12 +88,14 @@ define(function (require, exports, module) {
                 item.x = (content.width() - item.width) / 2;
             });
             if (flag !== -1) {
-                imageArr[(flag + 1) % 2].alpha = 1;
+                imageArr[(flag + 1) % imageArr.length].alpha = 1;
             }
         };
 
         imageArr.push(images);
         imageArr.push(images2);
+        imageArr.push(images4);
+        imageArr.push(images3);
 
         imageArr.forEach(function (item) {
             item.width = 47 / 5;
@@ -93,17 +103,23 @@ define(function (require, exports, module) {
             item.x = (content.width() - item.width) / 2;
             item.y = 241;
             item.alpha = 0;
-            app.stage.addChild(item);
+            people.addChild(item);
         });
+        container.addChild(txt);
+        app.stage.addChild(container);
+        app.stage.addChild(people);
 
         images.alpha = 1;
         ticker.autoStart = false;
+        mountain = container;
 
         ticker.add(function (time) {
             timer += 1;
             if (images.y < 350) {
                 images.y += 0.3;
                 images2.y += 0.3;
+                images3.y += 0.3;
+                images4.y += 0.3;
             }
 
             if (images.width < 47) {
@@ -111,31 +127,25 @@ define(function (require, exports, module) {
             } else {
                 ticker.stop();
                 ticker.remove();
-                drawSecond(background, background2, './images/desert.png', function (background2) {
-                    drawSecond(background2, background3, './images/forest.png', function (background2) {
-                        sea = getThird();;
-                        toggleBackground(background2, sea, function () {
-                            drawThird(sea.children[1]);
-                        });
-                    });
-                });
+                desert = getDesert();
+                toggleBackground(mountain, desert, desertAnimate, true);
             }
         });
         ticker.start();
     }
 
-    function toggleBackground(back1, back2, fn) {
+    function toggleBackground(back1, back2, fn, isWalking) {
         var ticker = PIXI.ticker.shared;
         ticker.autoStart = false;
 
         back2.alpha = 0;
         back1.alpha = 1;
 
-        drawText(text.shift());
         ticker.stop();
         timer = 0;
         ticker.add(function (time) {
             timer++;
+            if (isWalking) walk();
             if (back1.alpha > 0 && back2.alpha < 1) {
                 back1.alpha -= 0.01;
                 back2.alpha += 0.01
@@ -145,6 +155,68 @@ define(function (require, exports, module) {
                 ticker.stop();
                 ticker.remove();
                 fn && fn(back2);
+            }
+        });
+        ticker.start();
+    }
+
+    function getDesert() {
+        var container = new PIXI.Container();
+        var images = PIXI.Sprite.fromImage('./images/desert.png');
+        var txt = drawText(text.shift());
+        images.width = content.width();
+        images.height = content.height();
+        container.addChild(images);
+        container.addChild(txt);
+
+        app.stage.addChild(container);
+        app.stage.addChild(people);
+        return container;
+    }
+
+    function desertAnimate() {
+        var ticker = PIXI.ticker.shared;
+        ticker.stop();
+        timer = 0;
+        ticker.add(function (time) {
+            timer++;
+            walk();
+            if (timer === 100) {
+                forest = getForest();
+                ticker.stop();
+                ticker.remove();
+                toggleBackground(desert, forest, forestAnimate, true);
+            }
+        });
+        ticker.start();
+    }
+
+    function getForest() {
+        var container = new PIXI.Container();
+        var images = PIXI.Sprite.fromImage('./images/forest.png');
+        var txt = drawText(text.shift());
+        images.width = content.width();
+        images.height = content.height();
+        container.addChild(images);
+        container.addChild(txt);
+
+        app.stage.addChild(container);
+        app.stage.addChild(people);
+        return container;
+    }
+
+    function forestAnimate() {
+        var ticker = PIXI.ticker.shared;
+        ticker.stop();
+        timer = 0;
+        ticker.add(function (time) {
+            timer++;
+            walk();
+            if (timer === 100) {
+                sea = getThird();
+                ticker.stop();
+                ticker.remove();
+                toggleBackground(forest, sea, drawThird);
             }
         });
         ticker.start();
@@ -184,9 +256,10 @@ define(function (require, exports, module) {
         ticker.start();
     }
 
-    function drawThird(boat) {
+    function drawThird() {
         // 绘制船
         var ticker = PIXI.ticker.shared;
+        var boat = sea.children[1]
 
         ticker.stop();
         timer = 0;
@@ -220,6 +293,7 @@ define(function (require, exports, module) {
         var images = PIXI.Sprite.fromImage('./images/rock.png');
         var boat = PIXI.Sprite.fromImage('./images/boat.png');
         var background = PIXI.Sprite.fromImage('./images/sea2.png');
+        var txt = drawText(text.shift());
 
         container.width = content.width();
         container.height = content.height();
@@ -227,9 +301,9 @@ define(function (require, exports, module) {
         images.width = content.width();
         images.height = content.height();
 
-        boat.width = 265.5 * rate;
-        boat.height = 238.5 * rate;
-        boat.y = 222 * rate;
+        boat.width = 291.5 * rate;
+        boat.height = 284.5 * rate;
+        boat.y = 192 * rate;
 
         background.width = app.renderer.width;
         background.height = app.renderer.height;
@@ -237,6 +311,7 @@ define(function (require, exports, module) {
         container.addChild(background);
         container.addChild(boat);
         container.addChild(images);
+        container.addChild(txt);
 
         app.stage.addChild(container);
         return container;
@@ -246,17 +321,46 @@ define(function (require, exports, module) {
         // 花园 叶子飘落
         var container = new PIXI.Container();
         var images = PIXI.Sprite.fromImage('./images/garden.png');
-        var leaf = PIXI.Sprite.fromImage('./images/leaf.png');
+        var leaf1 = PIXI.Sprite.fromImage('./images/leaf1.png');
+        var leaf2 = PIXI.Sprite.fromImage('./images/leaf1.png');
+        var leaf3 = PIXI.Sprite.fromImage('./images/leaf2.png');
+        var leaf4 = PIXI.Sprite.fromImage('./images/leaf2.png');
+        var leaf5 = PIXI.Sprite.fromImage('./images/leaf2.png');
 
         images.width = content.width();
         images.height = content.height();
-        leaf.width = 37.5 * rate;
-        leaf.height = 14 * rate;
-        leaf.x = 100;
-        leaf.y = 100;
+
+        leaf1.width = 16.5 * rate;
+        leaf1.height = 21.5 * rate;
+        leaf1.x = 240;
+        leaf1.y = 58;
+        
+        leaf2.width = 16.5 * rate;
+        leaf2.height = 21.5 * rate;
+        leaf2.x = 240;
+        leaf2.y = 260;
+        
+        leaf3.width = 18.5 * rate;
+        leaf3.height = 15.5 * rate;
+        leaf3.x = 190;
+        leaf3.y = 130;
+        
+        leaf4.width = 18.5 * rate;
+        leaf4.height = 15.5 * rate;
+        leaf4.x = 79;
+        leaf4.y = 150;
+        
+        leaf5.width = 18.5 * rate;
+        leaf5.height = 15.5 * rate;
+        leaf5.x = 121;
+        leaf5.y = 328;
 
         container.addChild(images);
-        container.addChild(leaf);
+        container.addChild(leaf1);
+        container.addChild(leaf2);
+        container.addChild(leaf3);
+        container.addChild(leaf4);
+        container.addChild(leaf5);
 
         app.stage.addChild(container);
         garden = container;
@@ -265,25 +369,52 @@ define(function (require, exports, module) {
     function gardenAnimate() {
         var ticker = PIXI.ticker.shared;
         var leafArr = garden.children;
-        var leaf = leafArr[1];
-        var flag = true;
+        var leaf1 = leafArr[1];
+        var leaf2 = leafArr[2];
+        var leaf3 = leafArr[3];
+        var leaf4 = leafArr[4];
+        var leaf5 = leafArr[5];
+        var leaf = [
+            leafArr[1],
+            leafArr[2],
+            leafArr[3],
+            leafArr[4],
+            leafArr[5]
+        ];
+        var speed = [
+            0.1,
+            0.15,
+            0.2,
+            0.1,
+            0.2
+        ];
+        var flag = new Array(5).fill(true);
+        var i;
         timer = 0;
 
         ticker.add(function () {
             timer++;
-            if (!flag) {
-                leaf.rotation -= 0.0005;
-                if (leaf.rotation < -0.05) {
-                    flag = true; //向上
+            if (timer  < 200) {
+                for (i = 0; i < flag.length; i++) {
+                    if (!flag[i]) {
+                        leaf[i].rotation -= 0.0005 * (1 + Math.random() * 10);
+                        if (leaf[i].rotation < -0.3 * (1 + Math.random())) {
+                            flag[i] = true; //向上
+                        }
+                    } else {
+                        leaf[i].rotation += (0.0005 * (1 + Math.random() * 10));
+                        if (leaf[i].rotation > 0.3 * (1 + Math.random())) {
+                            flag[i] = false; //向下
+                        }
+                    }
+                    leaf[i].y += speed[i] * (1 + Math.random() * 4);
                 }
             } else {
-                leaf.rotation += 0.0005;
-                if (leaf.rotation > 0.05) {
-                    flag = false; //向下
-                }
+                getCastle();
+                ticker.stop();
+                ticker.remove();
+                toggleBackground(garden, castle, castleAnimate);
             }
-            leaf.y += 0.1;
-            // console.log(leaf.y);
         });
         ticker.start();
     }
@@ -291,12 +422,50 @@ define(function (require, exports, module) {
     function getCastle() {
         var container = new PIXI.Container();
         var images = PIXI.Sprite.fromImage('./images/castle.png');
+        var background = PIXI.Sprite.fromImage('./images/castleB.png');
+        var cloud = PIXI.Sprite.fromImage('./images/cloud.png');
+
         images.width = content.width();
         images.height = content.height();
+        background.width = content.width();
+        background.height = content.height();
+        cloud.width = 225 * rate;
+        cloud.height = 233 * rate;
+        cloud.x = 70 * rate;
+        cloud.y = 30 * rate;
+
         container.addChild(images);
+        container.addChild(cloud);
+        container.addChild(background);
 
         app.stage.addChild(container);
         castle = container;
+    }
+
+    function castleAnimate() {
+        var ticker = PIXI.ticker.shared;
+        var cloud = castle.children[1];
+        var flag = true;
+
+        timer = 0;
+        ticker.add(function () {
+            timer++;
+            cloud.x += 0.05 * (1 + Math.random());
+                if (!flag) {
+                    cloud.rotation -= 0.00005;
+                    cloud.y -= 0.005 * (1 + Math.random());
+                    if (cloud.rotation < -0.05) {
+                        flag = true; //向上
+                    }
+                } else {
+                    cloud.rotation += 0.00005;
+                    cloud.y += 0.005 * (1 + Math.random());
+                    if (cloud.rotation > 0.02) {
+                        flag = false; //向下
+                    }
+                }
+        });
+        ticker.start();
     }
 
     // canvas.init
