@@ -5,6 +5,8 @@ define(function(require, exports, module) {
     var taPosition;
     var meetPosition;
     var distance = 0;
+    var myName = '';
+    var taName = '';
     var canvas = require('./canvas.js');
     var log = require('./log.js');
     var share = require('./share.js');
@@ -17,6 +19,8 @@ define(function(require, exports, module) {
         dom.test = dom.first.find('.testButton');
         dom.testS = dom.second.find('.testButton');
         dom.provinces = dom.second.find('.province');
+        dom.myName = dom.second.find('.myName');
+        dom.taName = dom.second.find('.taName');
         dom.myCity = dom.second.find('.myCity');
         dom.taCity = dom.second.find('.taCity');
         dom.meetCity = dom.second.find('.meetCity');
@@ -24,6 +28,9 @@ define(function(require, exports, module) {
         dom.taProvince = dom.second.find('.taProvince');
         dom.meetProvince = dom.second.find('.meetProvince');
 
+        dom.myNameFill = dom.third.find('.myName');
+        dom.taNameFill = dom.third.find('.taName');
+        dom.distance = dom.third.find('.distance');
         dom.again = dom.third.find('.again span');
         dom.share = dom.third.find('.share span');
     };
@@ -31,6 +38,7 @@ define(function(require, exports, module) {
     var eventBind = function () {
         dom.test.bind('tap', function () {
             dom.first.fadeOut(500);
+            dom.second.fadeIn(500);
             log(2);
         });
         dom.testS.bind('tap', function () {
@@ -38,7 +46,12 @@ define(function(require, exports, module) {
             var lnglat = new AMap.LngLat(meetPosition.lng, meetPosition.lat);
             var my = lnglat.distance([myPosition.lng, myPosition.lat]);
             var ta = lnglat.distance([taPosition.lng, taPosition.lat]);
+            myName = dom.myName.val();
+            taName = dom.taName.val();
             distance  = ((my + ta) / 1000).toFixed(0);
+            dom.myNameFill.text(myName);
+            dom.taNameFill.text(taName);
+            dom.distance.text(distance);
             dom.second.fadeOut(500);
             canvasInit();
             log(3);
@@ -156,7 +169,7 @@ define(function(require, exports, module) {
         provinceInit();
         dataInit();
         shareInit(true);
-        canvasInit();
+        //canvasInit();
     };
 
     init();

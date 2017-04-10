@@ -30,7 +30,7 @@
                 <div class="column">
                     <span class="text">我叫</span>
                     <span class="input">
-                        <input type="text" name="" class="inputContent">
+                        <input type="text" name="" class="inputContent myName">
                     </span>
                 </div>
                 <div class="column">
@@ -53,7 +53,7 @@
                 <div class="column">
                     <span class="text">TA叫</span>
                     <span class="input">
-                        <input type="text" name="" class="inputContent">
+                        <input type="text" name="" class="inputContent taName">
                     </span>
                 </div>
                 <div class="column">
@@ -95,8 +95,8 @@
         </div>
         <div class="third">
             <div class="textWrap">
-                <div class="text">XX和XX</div>
-                <div class="text">经历了XXX公里</div>
+                <div class="text"><span class="myName"></span>和<span class="taName"></span></div>
+                <div class="text">经历了<span class="distance"></span>公里</div>
                 <div class="text">终于在一起</div>
             </div>
             <div class="shareWrap">
