@@ -23,7 +23,7 @@ define(function (require, exports, module) {
         if (!obj) return;
         var style = new PIXI.TextStyle({
             fontFamily: 'microsoft yahei',
-            fontSize: 21,
+            fontSize: 21 * rate,
             fill: obj.color 
         });
         var richText = new PIXI.Text(obj.text, style);
