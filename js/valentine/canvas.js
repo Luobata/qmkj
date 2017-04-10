@@ -27,7 +27,7 @@ define(function (require, exports, module) {
             fill: obj.color 
         });
         var richText = new PIXI.Text(obj.text, style);
-        richText.x = content.width() / 2 - 60;
+        richText.x = content.width() / 2  - 60 * rate;
         richText.y = 102;
 
         //app.stage.addChild(richText);

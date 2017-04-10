@@ -131,7 +131,7 @@
             debug: 2
         });
         seajs.use([
-            './js/valentine/index.js?v=201608341'
+            './js/valentine/index.js?v=201608342'
         ]);
     // })
 </script>
