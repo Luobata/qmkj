@@ -133,11 +133,11 @@ define(function (require, exports, module) {
             timer++;
             if (isWalking) walk();
             if (back1.alpha > 0 && back2.alpha < 1) {
-                back1.alpha -= 0.01;
-                back2.alpha += 0.01
+                back1.alpha -= 0.005;
+                back2.alpha += 0.005;
             }
 
-            if (timer === 100) {
+            if (timer === 200) {
                 ticker.stop();
                 ticker.remove();
                 //app.destroy(app);

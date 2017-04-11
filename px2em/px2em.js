@@ -2,7 +2,7 @@ var fs = require('fs');
 var paths = require('path');
 
 var config = {
-    px: 15.525,
+    px: 12,
     fixNumber: 9,
     type: 'rem',
     cssClass: 'em'
