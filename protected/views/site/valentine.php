@@ -21,6 +21,13 @@
 </script>
     <div id="index">
         <div class="first">
+            <div class="textWrap">
+                <span class="text1 text"></span>
+                <span class="text2 text"></span>
+                <span class="text3 text"></span>
+                <span class="text4 text"></span>
+                <span class="text5 text"></span>
+            </div>
             <span class="people">
             </span>
             <span class="testButton">测一测</span>

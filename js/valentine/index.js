@@ -16,6 +16,7 @@ define(function(require, exports, module) {
         dom.first = dom.index.find('.first');
         dom.second = dom.index.find('.second');
         dom.third = dom.index.find('.third');
+        dom.text = dom.first.find('.text');
         dom.test = dom.first.find('.testButton');
         dom.testS = dom.second.find('.testButton');
         dom.provinces = dom.second.find('.province');
@@ -160,11 +161,33 @@ define(function(require, exports, module) {
         });
     };
 
+    var fadeInit = function () {
+        var timer = null;
+        var getText = function (i) {
+            return dom.text.eq(i);
+        };
+        var i = 0;
+        var loop = function () {
+            timer = setTimeout(function () {
+                var text = getText(i++);
+                if (text.length) {
+                    text.fadeIn(1000, function () {
+                        loop();
+                    });
+                } else {
+                    dom.test.fadeIn(1000);
+                }
+            }, 1000);
+        }
+        loop();
+    };
+
 
     var init = function () {
         log(1);
         // enter();
         domInit();
+        fadeInit();
         eventBind();
         provinceInit();
         dataInit();
