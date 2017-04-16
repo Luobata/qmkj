@@ -53,9 +53,13 @@ define(function(require, exports, module) {
             dom.myNameFill.text(myName);
             dom.taNameFill.text(taName);
             dom.distance.text(distance);
-            dom.second.fadeOut(500);
-            canvasInit();
-            log(3);
+            if (!myName || !taName) {
+                alert('请填写完整的信息');
+            } else {
+                dom.second.fadeOut(500);
+                canvasInit();
+                log(3);
+            }
         });
 
         dom.again.bind('tap', function () {
@@ -192,7 +196,7 @@ define(function(require, exports, module) {
         provinceInit();
         dataInit();
         shareInit(true);
-        canvasInit();
+        //canvasInit();
     };
 
     init();

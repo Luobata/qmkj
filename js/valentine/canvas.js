@@ -118,17 +118,17 @@ define(function (require, exports, module) {
         images.alpha = 1;
         ticker.autoStart = false;
         mountain = container;
-        var boySpeed = 0.3;
+        var boySpeed = 0.6;
 
         ticker.add(function (time) {
             timer += 1;
             boyWalk(boy);
             if (boy.x < 200 * rate) {
                 boy.x += boySpeed * rate;
-                boy.y -= 0.05 * rate;
+                boy.y -= 0.1 * rate;
             } else {
                 boy.x += boySpeed * rate;
-                boy.y -= 0.125 * rate;
+                boy.y -= 0.25 * rate;
             }
             if (boy.x >= content.width() * 2) {
                 ticker.stop();
