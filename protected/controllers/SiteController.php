@@ -5,6 +5,9 @@ class SiteController extends Controller
 	/**
 	 * Declares class-based actions.
 	 */
+	public $appId = "wx1fdca5b8a748f86b";
+	public $secret = "944ca14646867291fcb4d0913ce9b88e";
+
 	public function actions()
 	{
 		return array(
@@ -29,7 +32,14 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->renderPartial('valentine');
+		$sdk = new JSSDK($this->appId, $this->secret);
+		$signPackage = $sdk->getSignPackage();
+		// var_dump($signPackage);
+		// exit;
+
+		$this->renderPartial('valentine', array(
+			"signPackage" => CJSON::encode($signPackage)
+		));
 	}
 
     public function actionAdd() {

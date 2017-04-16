@@ -192,7 +192,7 @@ define(function(require, exports, module) {
         provinceInit();
         dataInit();
         shareInit(true);
-        //canvasInit();
+        canvasInit();
     };
 
     init();
