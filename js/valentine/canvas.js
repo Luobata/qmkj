@@ -10,6 +10,8 @@ define(function (require, exports, module) {
     var sea;
     var garden;
     var castle;
+    var boy;
+    var girl;
     var complete;
     var people;
     var text = [
@@ -17,6 +19,7 @@ define(function (require, exports, module) {
     var imageArr = [
     ];
     var timer = 0;
+    var timer2 = 0;
     var rate = window.rate * 2;
 
     function drawText(obj) {
@@ -37,9 +40,25 @@ define(function (require, exports, module) {
     function walk() {
         var flag = -1;
         imageArr.forEach(function (item, index) {
-            //console.log(timer / 1000);
             //if ((timer / 100000) > 1) {
             if ((timer % 20) === 1) {
+                if (item.alpha === 1) {
+                    item.alpha = 0;
+                    flag = index;
+                }
+            }
+        });
+        if (flag !== -1) {
+            imageArr[(flag + 1) % imageArr.length].alpha = 1;
+        }
+    }
+
+    function boyWalk(boy) {
+        var imageArr = boy.children;
+        var flag = -1;
+        imageArr.forEach(function (item, index) {
+            //if ((timer / 100000) > 1) {
+            if ((timer % 10) === 1) {
                 if (item.alpha === 1) {
                     item.alpha = 0;
                     flag = index;
@@ -90,17 +109,34 @@ define(function (require, exports, module) {
             item.alpha = 0;
             people.addChild(item);
         });
-        container.addChild(people);
+        boy.y = (422 - 94) * rate;
         container.addChild(txt);
+        container.addChild(boy);
         app.stage.addChild(container);
         //app.stage.addChild(people);
 
         images.alpha = 1;
         ticker.autoStart = false;
         mountain = container;
+        var boySpeed = 0.3;
 
         ticker.add(function (time) {
             timer += 1;
+            boyWalk(boy);
+            if (boy.x < 200 * rate) {
+                boy.x += boySpeed * rate;
+                boy.y -= 0.05 * rate;
+            } else {
+                boy.x += boySpeed * rate;
+                boy.y -= 0.125 * rate;
+            }
+            if (boy.x >= content.width() * 2) {
+                ticker.stop();
+                ticker.remove();
+                sea = getThird();
+                toggleBackground(mountain, sea, drawThird);
+            }
+            return;
             if (images.y < 350 * rate) {
                 images.y += 0.3;
                 images2.y += 0.3;
@@ -128,20 +164,20 @@ define(function (require, exports, module) {
         back1.alpha = 1;
 
         ticker.stop();
-        timer = 0;
+        timer2 = 0;
+        fn && fn(back2);
         ticker.add(function (time) {
-            timer++;
+            timer2++;
             if (isWalking) walk();
             if (back1.alpha > 0 && back2.alpha < 1) {
                 back1.alpha -= 0.005;
                 back2.alpha += 0.005;
             }
 
-            if (timer === 200) {
-                ticker.stop();
-                ticker.remove();
+            if (timer2 === 200) {
+                //ticker.stop();
+                //ticker.remove();
                 //app.destroy(app);
-                fn && fn(back2);
             }
         });
         ticker.start();
@@ -154,7 +190,10 @@ define(function (require, exports, module) {
         images.width = content.width() * 2;
         images.height = content.height() * 2;
         container.addChild(images);
+        container.addChild(girl);
         container.addChild(txt);
+        girl.x = content.width() * 2 - 20;
+        girl.y = 182.5 * rate;
 
         app.stage.addChild(container);
         // app.stage.addChild(people);
@@ -163,12 +202,16 @@ define(function (require, exports, module) {
 
     function desertAnimate() {
         var ticker = PIXI.ticker.shared;
+        var girlSpeed = 0.6;
         ticker.stop();
         timer = 0;
         ticker.add(function (time) {
             timer++;
-            // walk();
-            if (timer === 100) {
+            boyWalk(girl);
+            if (girl.x > 0) {
+                girl.x -= girlSpeed * rate;
+                girl.y += 0.1 * rate;
+            } else {
                 getCastle();
                 ticker.stop();
                 ticker.remove();
@@ -180,7 +223,9 @@ define(function (require, exports, module) {
 
     function getForest() {
         var container = new PIXI.Container();
-        var images = PIXI.Sprite.fromImage('./images/forest.png');
+        var images = PIXI.Sprite.fromImage('./images/forestB.jpg');
+        var tree1 = PIXI.Sprite.fromImage('./images/tree.png');
+        var tree2 = PIXI.Sprite.fromImage('./images/tree.png');
         var leaf1 = PIXI.Sprite.fromImage('./images/y1.png');
         var leaf2 = PIXI.Sprite.fromImage('./images/y2.png');
         var leaf3 = PIXI.Sprite.fromImage('./images/y3.png');
@@ -216,7 +261,18 @@ define(function (require, exports, module) {
         leaf5.x = 144 * rate;
         leaf5.y = 528 * rate;
 
+        tree1.width = 90 * rate;
+        tree1.height = content.height() * 2;
+        tree1.x = 76 * rate;
+
+        tree2.width = 90 * rate;
+        tree2.height = content.height() * 2;
+        tree2.x = 272.5 * rate;
+
         container.addChild(images);
+        container.addChild(boy);
+        container.addChild(tree1);
+        container.addChild(tree2);
         container.addChild(leaf1);
         container.addChild(leaf2);
         container.addChild(leaf3);
@@ -234,26 +290,29 @@ define(function (require, exports, module) {
         ticker.stop();
         var leafArr = forest.children;
         var leaf = [
-            leafArr[1],
-            leafArr[2],
-            leafArr[3],
             leafArr[4],
-            leafArr[5]
+            leafArr[5],
+            leafArr[6],
+            leafArr[7],
+            leafArr[8]
         ];
         var speed = [
-            0.2,
-            0.15,
-            0.25,
-            0.1,
-            0.2
+            0.2 * rate,
+            0.15 * rate,
+            0.25 * rate,
+            0.1 * rate,
+            0.2 * rate
         ];
         var flag = new Array(5).fill(true);
         var i;
+        var boySpeed = 0.5 * rate;
         timer = 0;
+        boy.x = 0;
+        boy.y = 300 * rate;
         ticker.add(function (time) {
             timer++;
-            // walk();
-            if (timer < 300) {
+            if (boy.x < content.width() * 2) {
+                boyWalk(boy);
                 for (i = 0; i < flag.length; i++) {
                     if (!flag[i]) {
                         leaf[i].rotation -= 0.0005 * (1 + Math.random() * 10);
@@ -268,6 +327,9 @@ define(function (require, exports, module) {
                     }
                     leaf[i].y += speed[i] * (1 + Math.random() * 4);
                 }
+
+                boy.x += boySpeed * rate;
+                boy.y -= 0.1 * rate;
             } else {
                 desert = getDesert();
                 ticker.stop();
@@ -288,7 +350,7 @@ define(function (require, exports, module) {
         var flag = true;
         ticker.add(function (time) {
             timer++;
-            if (timer < 200) {
+            if (timer < 400) {
                 if (!flag) {
                     boat.rotation -= 0.0005;
                     if (boat.rotation < -0.05) {
@@ -342,7 +404,7 @@ define(function (require, exports, module) {
     function getGarden() {
         // 花园 叶子飘落
         var container = new PIXI.Container();
-        var images = PIXI.Sprite.fromImage('./images/garden.png');
+        var images = PIXI.Sprite.fromImage('./images/gardenB.png');
         var leaf1 = PIXI.Sprite.fromImage('./images/leaf1.png');
         var leaf2 = PIXI.Sprite.fromImage('./images/leaf1.png');
         var leaf3 = PIXI.Sprite.fromImage('./images/leaf2.png');
@@ -378,7 +440,11 @@ define(function (require, exports, module) {
         leaf5.x = 121 * rate;
         leaf5.y = 328 * rate;
 
+        girl.x = 166 * rate;
+        girl.y = 229 * rate;
+
         container.addChild(images);
+        container.addChild(girl);
         container.addChild(leaf1);
         container.addChild(leaf2);
         container.addChild(leaf3);
@@ -393,32 +459,29 @@ define(function (require, exports, module) {
     function gardenAnimate() {
         var ticker = PIXI.ticker.shared;
         var leafArr = garden.children;
-        var leaf1 = leafArr[1];
-        var leaf2 = leafArr[2];
-        var leaf3 = leafArr[3];
-        var leaf4 = leafArr[4];
-        var leaf5 = leafArr[5];
         var leaf = [
-            leafArr[1],
             leafArr[2],
             leafArr[3],
             leafArr[4],
-            leafArr[5]
+            leafArr[5],
+            leafArr[6]
         ];
         var speed = [
-            0.1,
-            0.15,
-            0.2,
-            0.1,
-            0.2
+            0.1 * rate,
+            0.15 * rate,
+            0.2 * rate,
+            0.1 * rate,
+            0.2 * rate
         ];
         var flag = new Array(5).fill(true);
         var i;
+        var girlSpeed = 0.5;
         timer = 0;
 
         ticker.add(function () {
             timer++;
-            if (timer  < 200) {
+            boyWalk(girl);
+            if (girl.x > 0) {
                 for (i = 0; i < flag.length; i++) {
                     if (!flag[i]) {
                         leaf[i].rotation -= 0.0005 * (1 + Math.random() * 10);
@@ -433,6 +496,8 @@ define(function (require, exports, module) {
                     }
                     leaf[i].y += speed[i] * (1 + Math.random() * 4);
                 }
+                girl.x -= girlSpeed * rate;
+                girl.y += 0.1 * rate;
             } else {
                 ticker.stop();
                 ticker.remove();
@@ -472,22 +537,23 @@ define(function (require, exports, module) {
         var ticker = PIXI.ticker.shared;
         var cloud = castle.children[1];
         var flag = true;
+        var casteRate = rate * 3;
 
         timer = 0;
         ticker.add(function () {
             timer++;
-            if (timer < 200) {
-                cloud.x += 0.05 * (1 + Math.random());
+            if (timer < 400) {
+                cloud.x += 0.05 * (1 + Math.random()) * casteRate;
                 if (!flag) {
-                    cloud.rotation -= 0.00005;
-                    cloud.y -= 0.005 * (1 + Math.random());
-                    if (cloud.rotation < -0.05) {
+                    cloud.rotation -= 0.00005 * casteRate;
+                    cloud.y -= 0.005 * (1 + Math.random()) * casteRate;
+                    if (cloud.rotation < -0.05 * rate) {
                         flag = true; //向上
                     }
                 } else {
-                    cloud.rotation += 0.00005;
-                    cloud.y += 0.005 * (1 + Math.random());
-                    if (cloud.rotation > 0.02) {
+                    cloud.rotation += 0.00005 * casteRate;
+                    cloud.y += 0.005 * (1 + Math.random()) * casteRate;
+                    if (cloud.rotation > 0.02 * rate) {
                         flag = false; //向下
                     }
                 }
@@ -501,10 +567,138 @@ define(function (require, exports, module) {
         ticker.start();
     }
 
+    function createPepple(people, peopleString) {
+        var people1 = PIXI.Sprite.fromImage('./images/' + peopleString + '1.png');
+        var people2 = PIXI.Sprite.fromImage('./images/' + peopleString + '2.png');
+        var people3 = PIXI.Sprite.fromImage('./images/' + peopleString + '3.png');
+        var people4 = PIXI.Sprite.fromImage('./images/' + peopleString + '4.png');
+        var people5 = PIXI.Sprite.fromImage('./images/' + peopleString + '5.png');
+        var people6 = PIXI.Sprite.fromImage('./images/' + peopleString + '6.png');
+        var people7 = PIXI.Sprite.fromImage('./images/' + peopleString + '7.png');
+        var people8 = PIXI.Sprite.fromImage('./images/' + peopleString + '8.png');
+        var txt = drawText(text.shift());
+
+        people.width = content.width() * 2;
+        people.height = content.height() * 2;
+
+        people1.width = 57 * rate;
+        people1.height = 94 * rate;
+        people1.alpha = 1;
+
+        people2.width = 40.5 * rate;
+        people2.height = 94.5 * rate;
+        people2.alpha = 0;
+
+        people3.width = 24.5 * rate;
+        people3.height = 94 * rate;
+        people3.alpha = 0;
+        people3.x = 10 * rate;
+
+        people4.width = 40.5 * rate;
+        people4.height = 94.5 * rate;
+        people4.alpha = 0;
+
+        people5.width = 57 * rate;
+        people5.height = 94 * rate;
+        people5.alpha = 0;
+
+        people6.width = 40.5 * rate;
+        people6.height = 94.5 * rate;
+        people6.alpha = 0;
+
+        people7.width = 24.5 * rate;
+        people7.height = 94 * rate;
+        people7.alpha = 0;
+        people7.x = 10 * rate;
+
+        people8.width = 40.5 * rate;
+        people8.height = 94.5 * rate;
+        people8.alpha = 0;
+
+
+        //people5.width = 64.5 * rate;
+        //people5.height = 96.5 * rate;
+        //people5.alpha = 0;
+
+        people.addChild(people1);
+        people.addChild(people2);
+        people.addChild(people3);
+        people.addChild(people4);
+        people.addChild(people5);
+        people.addChild(people6);
+        people.addChild(people7);
+        people.addChild(people8);
+    }
+
+    function createGirl(people, peopleString) {
+        var people1 = PIXI.Sprite.fromImage('./images/' + peopleString + '1.png');
+        var people2 = PIXI.Sprite.fromImage('./images/' + peopleString + '2.png');
+        var people3 = PIXI.Sprite.fromImage('./images/' + peopleString + '3.png');
+        var people4 = PIXI.Sprite.fromImage('./images/' + peopleString + '4.png');
+        var people5 = PIXI.Sprite.fromImage('./images/' + peopleString + '5.png');
+        var people6 = PIXI.Sprite.fromImage('./images/' + peopleString + '6.png');
+        var people7 = PIXI.Sprite.fromImage('./images/' + peopleString + '7.png');
+        var people8 = PIXI.Sprite.fromImage('./images/' + peopleString + '8.png');
+        var txt = drawText(text.shift());
+
+        people.width = content.width() * 2;
+        people.height = content.height() * 2;
+
+        people1.width = 60 * rate;
+        people1.height = 94 * rate;
+        people1.alpha = 1;
+        people1.x = -20 * rate;
+
+        people2.width = 40.5 * rate;
+        people2.height = 94.5 * rate;
+        people2.alpha = 0;
+
+        people3.width = 24.5 * rate;
+        people3.height = 94 * rate;
+        people3.alpha = 0;
+        people3.x = 7.5 * rate;
+
+        people4.width = 40.5 * rate;
+        people4.height = 94.5 * rate;
+        people4.alpha = 0;
+
+        people5.width = 67 * rate;
+        people5.height = 94 * rate;
+        people5.alpha = 0;
+        people5.x = -20 * rate;
+
+        people6.width = 40.5 * rate;
+        people6.height = 94.5 * rate;
+        people6.alpha = 0;
+
+        people7.width = 24.5 * rate;
+        people7.height = 94 * rate;
+        people7.alpha = 0;
+        people7.x = 7.5 * rate;
+
+        people8.width = 40.5 * rate;
+        people8.height = 94.5 * rate;
+        people8.alpha = 0;
+
+        people.addChild(people1);
+        people.addChild(people2);
+        people.addChild(people3);
+        people.addChild(people4);
+        people.addChild(people5);
+        people.addChild(people6);
+        people.addChild(people7);
+        people.addChild(people8);
+    }
+
     // canvas.init
     var init = function (dom, fn) {
         var html = document.body;
+        content = dom;
         people = new PIXI.Container();
+        boy = new PIXI.Container();
+        girl = new PIXI.Container();
+        createPepple(boy, 'boy');
+        createGirl(girl, 'girl');
         imageArr = [];
         text = [
             {
@@ -536,7 +730,6 @@ define(function (require, exports, module) {
 
         background = PIXI.Sprite.fromImage('./images/mountain.png');
 
-        content = dom;
         app = new PIXI.Application(dom.width() * 2, dom.height() * 2);
         dom.append(app.view);
 
@@ -546,6 +739,8 @@ define(function (require, exports, module) {
         app.stage.addChild(background);
 
         drawFirst();
+        //getGarden();
+        //gardenAnimate();
     };
 
 

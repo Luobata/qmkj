@@ -7,8 +7,8 @@
 <title></title>
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./js/lib/reset.css" />
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/global.css" />
-<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/index.css?v=201608337" /> -->
-<link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/index.css?v=201608337" />
+<link rel="stylesheet" type="text/css" charset="utf-8" href="./css/index.css?v=201608337" />
+<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/index.css?v=201608337" /> -->
 </head>
 <body>
 <script type="text/javascript">

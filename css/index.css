@@ -94,7 +94,7 @@ canvas {
     margin-left: -87.5px;
 }
 #index .first .testButton {
-    display: none;
+    /*display: none;*/
 }
 #index .second {
     width: 100%;
@@ -134,10 +134,16 @@ canvas {
 .input .inputContent {
     height: 24px;
     line-height: 24px;
+    /*-webkit-appearance: none;*/
+    border: 1px solid #e87c7a;
+    border-radius: 2px;
 }
 .input .inputContentSelect {
     height: 28px;
     width: 58px;
+    border: 1px solid #e87c7a;
+    border-radius: 2px;
+    /*-webkit-appearance: none;*/
 }
 
 #index .third {
