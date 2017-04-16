@@ -217,3 +217,30 @@ canvas {
     width: 120px;
     height: 82px;
 }
+
+.tip {
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    z-index: 10000;
+    text-align: center;
+    display: none;
+}
+.tip .tip-content {
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+}

@@ -110,6 +110,9 @@ define(function (require, exports, module) {
             people.addChild(item);
         });
         boy.y = (422 - 94) * rate;
+
+        boy.y = (288 - 94) * rate;
+
         container.addChild(txt);
         container.addChild(boy);
         app.stage.addChild(container);
@@ -123,13 +126,24 @@ define(function (require, exports, module) {
         ticker.add(function (time) {
             timer += 1;
             boyWalk(boy);
-            if (boy.x < 200 * rate) {
+            //if (boy.x < 200 * rate) {
+            //    boy.x += boySpeed * rate;
+            //    boy.y -= 0.1 * rate;
+            //} else {
+            //    boy.x += boySpeed * rate;
+            //    boy.y -= 0.25 * rate;
+            //}
+
+            if (boy.x < 67 * rate) {
                 boy.x += boySpeed * rate;
                 boy.y -= 0.1 * rate;
+            } else if (boy.x < 195 * rate) {
+                boy.x += boySpeed * rate;
             } else {
                 boy.x += boySpeed * rate;
-                boy.y -= 0.25 * rate;
+                boy.y += 0.2 * rate;
             }
+
             if (boy.x >= content.width() * 2) {
                 ticker.stop();
                 ticker.remove();
@@ -202,13 +216,13 @@ define(function (require, exports, module) {
 
     function desertAnimate() {
         var ticker = PIXI.ticker.shared;
-        var girlSpeed = 0.6;
+        var girlSpeed = 1;
         ticker.stop();
         timer = 0;
         ticker.add(function (time) {
             timer++;
             boyWalk(girl);
-            if (girl.x > 0) {
+            if (girl.x > -40.5 * rate) {
                 girl.x -= girlSpeed * rate;
                 girl.y += 0.1 * rate;
             } else {
@@ -475,13 +489,13 @@ define(function (require, exports, module) {
         ];
         var flag = new Array(5).fill(true);
         var i;
-        var girlSpeed = 0.5;
+        var girlSpeed = 1;
         timer = 0;
 
         ticker.add(function () {
             timer++;
             boyWalk(girl);
-            if (girl.x > 0) {
+            if (girl.x > -40.5 * rate) {
                 for (i = 0; i < flag.length; i++) {
                     if (!flag[i]) {
                         leaf[i].rotation -= 0.0005 * (1 + Math.random() * 10);
@@ -542,7 +556,7 @@ define(function (require, exports, module) {
         timer = 0;
         ticker.add(function () {
             timer++;
-            if (timer < 400) {
+            if (timer < 300) {
                 cloud.x += 0.05 * (1 + Math.random()) * casteRate;
                 if (!flag) {
                     cloud.rotation -= 0.00005 * casteRate;
@@ -741,6 +755,8 @@ define(function (require, exports, module) {
         drawFirst();
         //getGarden();
         //gardenAnimate();
+        //desert = getDesert();
+        //desertAnimate();
     };
 
 

@@ -118,6 +118,9 @@
                 </div>
             </div>
         </div>
+        <div class="tip">
+            <div class="tip-content">13</div>
+        </div>
     </div>
 
 
@@ -142,14 +145,14 @@
         jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
     wx.ready(function () {
-        var version = 201608334;
+        var version = 2016083341;
         seajs.config({
             charset: 'utf-8',
             timeout: 20000,
             debug: 2
         });
         seajs.use([
-            './js/valentine/index.js?v=201608342'
+            './js/valentine/index.js?v=' + version
         ]);
     });
 </script>

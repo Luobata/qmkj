@@ -16,6 +16,8 @@ define(function(require, exports, module) {
         dom.first = dom.index.find('.first');
         dom.second = dom.index.find('.second');
         dom.third = dom.index.find('.third');
+        dom.tip = dom.index.find('.tip');
+        dom.tipC = dom.index.find('.tip-content');
         dom.text = dom.first.find('.text');
         dom.test = dom.first.find('.testButton');
         dom.testS = dom.second.find('.testButton');
@@ -34,6 +36,11 @@ define(function(require, exports, module) {
         dom.distance = dom.third.find('.distance');
         dom.again = dom.third.find('.again span');
         dom.share = dom.third.find('.share span');
+    };
+
+    var tip = function (txt) {
+        dom.tipC.text(txt);
+        dom.tip.fadeIn(100);
     };
 
     var eventBind = function () {
@@ -55,6 +62,7 @@ define(function(require, exports, module) {
             dom.distance.text(distance);
             if (!myName || !taName) {
                 alert('请填写完整的信息');
+                // tip('请填写完整的信息');
             } else {
                 dom.second.fadeOut(500);
                 canvasInit();
@@ -68,6 +76,9 @@ define(function(require, exports, module) {
         });
         dom.share.bind('tap', function () {
             share.init(dom.index);
+        });
+        dom.tip.bind('tap', function () {
+            dom.tip.fadeOut(200);
         });
     };
     var canvasInit = function () {
@@ -196,7 +207,7 @@ define(function(require, exports, module) {
         provinceInit();
         dataInit();
         shareInit(true);
-        //canvasInit();
+        // canvasInit();
     };
 
     init();
