@@ -3,7 +3,8 @@ html,body {
     overflow: hidden;
 }
 canvas {
-    width: 100%;
+    width: 50%;
+    height: 100%;
 }
 #index {
     width: 100%;
@@ -94,7 +95,7 @@ canvas {
     margin-left: -7.291666667rem;
 }
 #index .first .testButton {
-    display: none;
+    /*display: none;*/
 }
 #index .second {
     width: 100%;
@@ -232,9 +233,9 @@ canvas {
     display: none;
 }
 .tip .tip-content {
-    width: 4.166666667rem;
-    height: 1.666666667rem;
-    line-height: 1.666666667rem;
+    width: 19.583333333rem;
+    height: 10.625000000rem;
+    border-radius: 0.500000000rem;
     display: inline-block;
     position: absolute;
     margin: auto;
@@ -243,4 +244,24 @@ canvas {
     bottom: 0;
     right: 0;
     background-color: #fff;
+}
+.tip .tip-content .tip-text {
+    font-size: 1.500000000rem;
+    color: #5a1b19;
+    font-family: microsoft yahei;
+    display: block;
+    margin: 2.833333333rem 0 0 0;
+}
+.tip .tip-content .ok-button {
+    width: 14.583333333rem;
+    height: 3.333333333rem;
+    line-height: 3.333333333rem;
+    margin: 2.000000000rem 0 0 0;
+    display: inline-block;
+    color: #fff;
+    background-color: #e89492;
+    font-size: 1.500000000rem;
+    font-family: microsoft yahei;
+    border-radius: 0.416666667rem;
+    text-align: center;
 }

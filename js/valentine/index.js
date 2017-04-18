@@ -7,7 +7,7 @@ define(function(require, exports, module) {
     var distance = 0;
     var myName = '';
     var taName = '';
-    var canvas = require('./canvas.js');
+    var canvas = require('./canvas2.js');
     var log = require('./log.js');
     var share = require('./share.js');
 
@@ -17,6 +17,7 @@ define(function(require, exports, module) {
         dom.second = dom.index.find('.second');
         dom.third = dom.index.find('.third');
         dom.tip = dom.index.find('.tip');
+        dom.tipOk = dom.index.find('.ok-button');
         dom.tipC = dom.index.find('.tip-content');
         dom.text = dom.first.find('.text');
         dom.test = dom.first.find('.testButton');
@@ -39,7 +40,7 @@ define(function(require, exports, module) {
     };
 
     var tip = function (txt) {
-        dom.tipC.text(txt);
+        //dom.tipC.text(txt);
         dom.tip.fadeIn(100);
     };
 
@@ -61,8 +62,8 @@ define(function(require, exports, module) {
             dom.taNameFill.text(taName);
             dom.distance.text(distance);
             if (!myName || !taName) {
-                alert('请填写完整的信息');
-                // tip('请填写完整的信息');
+                //alert('请填写完整的信息');
+                tip('请填写完整的信息');
             } else {
                 dom.second.fadeOut(500);
                 canvasInit();
@@ -77,8 +78,11 @@ define(function(require, exports, module) {
         dom.share.bind('tap', function () {
             share.init(dom.index);
         });
-        dom.tip.bind('tap', function () {
-            dom.tip.fadeOut(200);
+        dom.tip.bind('tap', function (e) {
+            var item = $(e.target);
+            if (!item.hasClass('tip-text')) {
+                dom.tip.fadeOut(200);
+            }
         });
     };
     var canvasInit = function () {
@@ -107,6 +111,30 @@ define(function(require, exports, module) {
     };
 
     var shareInit = function (type) {
+        var title = '我的爱跨域了多少距离';
+        var desc = '测下你的TA跨域多少距离才终于在一起';
+        var imgUrl = '';
+        var link = 'http://h5.ruyiso.com/qmkj/index.php';
+        var success = function () {
+        };
+        wx.onMenuShareTimeline({
+            title: title,
+            desc: desc,
+            link: link,
+            imgUrl: imgUrl,
+            success: success,
+            cancel: function () {
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: title,
+            desc: desc,
+            link: link,
+            imgUrl: imgUrl,
+            success: success,
+            cancel: function () {
+            }
+        });
     };
 
     var provinceInit = function () {
@@ -207,7 +235,7 @@ define(function(require, exports, module) {
         provinceInit();
         dataInit();
         shareInit(true);
-        // canvasInit();
+        //canvasInit();
     };
 
     init();

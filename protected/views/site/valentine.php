@@ -119,7 +119,10 @@
             </div>
         </div>
         <div class="tip">
-            <div class="tip-content">13</div>
+            <div class="tip-content">
+                <span class="tip-text">请填写完整的信息</span>
+                <span class="ok-button">确定</span>
+            </div>
         </div>
     </div>
 
@@ -145,7 +148,7 @@
         jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
     wx.ready(function () {
-        var version = 2016083341;
+        var version = 2016083343;
         seajs.config({
             charset: 'utf-8',
             timeout: 20000,

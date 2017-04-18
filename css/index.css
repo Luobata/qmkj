@@ -3,7 +3,8 @@ html,body {
     overflow: hidden;
 }
 canvas {
-    width: 100%;
+    width: 50%;
+    height: 100%;
 }
 #index {
     width: 100%;
@@ -94,7 +95,7 @@ canvas {
     margin-left: -87.5px;
 }
 #index .first .testButton {
-    display: none;
+    /*display: none;*/
 }
 #index .second {
     width: 100%;
@@ -232,9 +233,9 @@ canvas {
     display: none;
 }
 .tip .tip-content {
-    width: 50px;
-    height: 20px;
-    line-height: 20px;
+    width: 235px;
+    height: 127.5px;
+    border-radius: 6px;
     display: inline-block;
     position: absolute;
     margin: auto;
@@ -243,4 +244,24 @@ canvas {
     bottom: 0;
     right: 0;
     background-color: #fff;
+}
+.tip .tip-content .tip-text {
+    font-size: 18px;
+    color: #5a1b19;
+    font-family: microsoft yahei;
+    display: block;
+    margin: 34px 0 0 0;
+}
+.tip .tip-content .ok-button {
+    width: 175px;
+    height: 40px;
+    line-height: 40px;
+    margin: 24px 0 0 0;
+    display: inline-block;
+    color: #fff;
+    background-color: #e89492;
+    font-size: 18px;
+    font-family: microsoft yahei;
+    border-radius: 5px;
+    text-align: center;
 }
