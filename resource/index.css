@@ -95,7 +95,7 @@ canvas {
     margin-left: -7.291666667rem;
 }
 #index .first .testButton {
-    /*display: none;*/
+    display: none;
 }
 #index .second {
     width: 100%;
