@@ -72,8 +72,13 @@ define(function(require, exports, module) {
         });
 
         dom.again.bind('tap', function () {
+            dom.test.hide();
+            dom.text.hide();
             dom.third.fadeOut();
-            canvasInit();
+            dom.first.fadeIn(function () {
+                fadeInit();
+            });
+            //canvasInit();
         });
         dom.share.bind('tap', function () {
             share.init(dom.index);
@@ -112,7 +117,7 @@ define(function(require, exports, module) {
 
     var shareInit = function (type) {
         var title = '我的爱跨域了多少距离';
-        var desc = '测下你的TA跨域多少距离才终于在一起';
+        var desc = '测下你和TA跨域多少距离才终于在一起';
         var imgUrl = '';
         var link = 'http://h5.ruyiso.com/qmkj/index.php';
         var success = function () {
