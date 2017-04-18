@@ -7,7 +7,7 @@ define(function(require, exports, module) {
     var distance = 0;
     var myName = '';
     var taName = '';
-    var canvas = require('./canvas2.js');
+    var canvas = require('./canvas2.js?123');
     var log = require('./log.js');
     var share = require('./share.js');
 
@@ -235,7 +235,7 @@ define(function(require, exports, module) {
         provinceInit();
         dataInit();
         shareInit(true);
-        //canvasInit();
+        // canvasInit();
     };
 
     init();
