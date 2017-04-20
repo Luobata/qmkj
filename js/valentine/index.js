@@ -219,13 +219,13 @@ define(function(require, exports, module) {
             timer = setTimeout(function () {
                 var text = getText(i++);
                 if (text.length) {
-                    text.fadeIn(1000, function () {
+                    text.fadeIn(800, function () {
                         loop();
                     });
                 } else {
                     dom.test.fadeIn(1000);
                 }
-            }, 1000);
+            }, 500);
         }
         loop();
     };

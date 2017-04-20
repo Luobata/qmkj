@@ -17,7 +17,7 @@ canvas {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: url('../images/first.png') no-repeat;
+    background: url('../images/first-b.png') no-repeat;
     background-size: 100% auto;
     text-align: center;
     position: absolute;
@@ -73,11 +73,85 @@ canvas {
     display: inline-block;
     width: 4.958333333rem;
     height: 8.416666667rem;
-    background: url('../images/people.png') no-repeat;
+    background: url('../images/peo.png') no-repeat;
     background-size: 100% auto;
     position: absolute;
     top: 56%;
     margin-left: -2.437500000rem;
+}
+#index .first .heart {
+    display: inline-block;
+    width: 4.958333333rem;
+    height: 2.583333333rem;
+    background: url('../images/heart.png') no-repeat;
+    background-size: 100% auto;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    transform: scale(1);
+    animation: mymove 1.5s infinite;
+}
+#index .first .boolean {
+    display: inline-block;
+    width: 8.333333333rem;
+    height: 26.250000000rem;
+    background: url('../images/ballon1.png') no-repeat;
+    background-size: 100% auto;
+    position: absolute;
+    top: 19%;
+    left: 0;
+    animation: boolean 4s infinite;
+}
+#index .first .boolean2 {
+    display: inline-block;
+    width: 9.541666667rem;
+    height: 25.833333333rem;
+    background: url('../images/ballon2.png') no-repeat;
+    background-size: 100% auto;
+    position: absolute;
+    top: 9%;
+    right: 0;
+    animation: boolean2 3s infinite;
+}
+
+@keyframes mymove
+{
+    0%   {
+        transform: scale(1);
+    }
+    0%   {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes boolean
+{
+    0%   {
+        top: 19%;
+    }
+    50%   {
+        top: 16%;
+    }
+    100% {
+        top: 19%;
+    }
+}
+@keyframes boolean2
+{
+    0%   {
+        top: 9%;
+    }
+    50%   {
+        top: 7%;
+    }
+    100% {
+        top: 9%;
+    }
 }
 #index .first .testButton,
 #index .second .testButton {

@@ -233,8 +233,8 @@ define(function (require, exports, module) {
         girl.x = 30 * rate;
         girl.y = 330 * rate;
 
-        boy.x = 230 * rate;
-        boy.y = 330 * rate;
+        boy.x = 210 * rate;
+        boy.y = 335 * rate;
         
         leftC.addChild(desert);
         leftC.addChild(girl);
@@ -275,14 +275,18 @@ define(function (require, exports, module) {
                 bg[1].alpha += 0.005;
                 bg2[0].alpha -= 0.005;
                 bg2[1].alpha += 0.005;
-            } else if (timer2 < 300) {
+            } else if (girl.x < content.width() * 3) {
+            //} else if (girl.x  < 0) {
                 timer2++;
             } else {
                 ticker.stop();
                 ticker.remove();
                 complete && complete();
-                app.destroy(app);
-                app2.destroy(app2);
+                $('canvas').fadeOut(1000, function () {
+                    $('canvas').remove();
+                });
+                    //app.destroy(app);
+                    //app2.destroy(app2);
             }
         });
         ticker.start();
@@ -403,7 +407,7 @@ define(function (require, exports, module) {
 
 
         drawFirst();
-        // drawSecond();
+        //drawSecond();
     };
 
 

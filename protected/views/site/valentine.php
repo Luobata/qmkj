@@ -22,6 +22,8 @@
 </script>
     <div id="index">
         <div class="first">
+            <span class="boolean"></span>
+            <span class="boolean2"></span>
             <div class="textWrap">
                 <span class="text1 text"></span>
                 <span class="text2 text"></span>
@@ -30,6 +32,7 @@
                 <span class="text5 text"></span>
             </div>
             <span class="people">
+                <span class="heart"></span>
             </span>
             <span class="testButton">测一测</span>
         </div>
