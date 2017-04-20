@@ -261,14 +261,14 @@ define(function (require, exports, module) {
             timer++;
             boyWalk(girl);
             boyWalk(boy);
-            girl.x += 0.9;
-            boy.x -= 0.9;
-            leftC.x -= 0.5;
-            leftT.x += 0.5;
-            textL.x += 0.5;
-            rightC.x += 0.5;
-            leftR.x -= 0.5;
-            textR.x -= 0.5;
+            girl.x += 1.8;
+            boy.x -= 1.8;
+            leftC.x -= 1;
+            leftT.x += 1;
+            textL.x += 1;
+            rightC.x += 1;
+            leftR.x -= 1;
+            textR.x -= 1;
 
             if (bg[0].alpha > 0 && bg[1].alpha < 1) {
                 bg[0].alpha -= 0.005;
