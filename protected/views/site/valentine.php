@@ -105,10 +105,11 @@
             <span class="testButton">测一测</span>
         </div>
         <div class="third">
+            <span class="heart2"></span>
             <div class="textWrap">
                 <div class="text"><span class="myName"></span>和<span class="taName"></span></div>
-                <div class="text">经历了<span class="distance"></span>公里</div>
-                <div class="text">终于在一起</div>
+                <div class="text">跨越了<span class="distance"></span>公里</div>
+                <div class="text showText">原来你一直在我身边，从未走远</div>
             </div>
             <div class="shareWrap">
                 <div class="again">
@@ -162,5 +163,6 @@
         ]);
     });
 </script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261805651'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261805651%26online%3D1' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>
