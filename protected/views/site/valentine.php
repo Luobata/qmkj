@@ -152,7 +152,7 @@
         jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
     wx.ready(function () {
-        var version = 2016083344;
+        var version = 2016083345;
         seajs.config({
             charset: 'utf-8',
             timeout: 20000,

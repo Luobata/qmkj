@@ -103,6 +103,7 @@ define(function(require, exports, module) {
         });
         dom.share.bind('tap', function () {
             share.init(dom.index);
+            log('ShareClick');
         });
         dom.tip.bind('tap', function (e) {
             var item = $(e.target);
