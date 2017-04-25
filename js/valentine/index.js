@@ -10,6 +10,13 @@ define(function(require, exports, module) {
     var canvas = require('./canvas2.js?123');
     var log = require('./log.js');
     var share = require('./share.js');
+    var showtext = {
+        100: '原来你一直在我身边，从未走远',
+        1000: '陌生的城市里，熟悉的我和你',
+        3000: '我迷失在地图上每一道短暂的光阴，从遇见你开始，变得有意义',
+        6000: '爱上你，我穿越了整个四季',
+        9000: '跨过大半个地球，漂洋过海来看你'
+    };
 
     var domInit = function () {
         dom.index = $('#index');
@@ -37,6 +44,7 @@ define(function(require, exports, module) {
         dom.distance = dom.third.find('.distance');
         dom.again = dom.third.find('.again span');
         dom.share = dom.third.find('.share span');
+        dom.showText = dom.third.find('.showText');
     };
 
     var tip = function (txt) {
@@ -61,6 +69,18 @@ define(function(require, exports, module) {
             dom.myNameFill.text(myName);
             dom.taNameFill.text(taName);
             dom.distance.text(distance);
+            distance = parseInt(distance, 10);
+            if (distance < 100) {
+                dom.showText.text(showtext[100]);
+            } else if (distance < 1000) {
+                dom.showText.text(showtext[1000]);
+            } else if (distance < 3000) {
+                dom.showText.text(showtext[3000]);
+            } else if (distance < 6000) {
+                dom.showText.text(showtext[6000]);
+            } else {
+                dom.showText.text(showtext[9000]);
+            }
             if (!myName || !taName) {
                 //alert('请填写完整的信息');
                 tip('请填写完整的信息');
@@ -78,6 +98,7 @@ define(function(require, exports, module) {
             dom.first.fadeIn(function () {
                 fadeInit();
             });
+            log('Again');
             //canvasInit();
         });
         dom.share.bind('tap', function () {
@@ -90,6 +111,7 @@ define(function(require, exports, module) {
             }
         });
     };
+
     var canvasInit = function () {
         canvas(dom.index, function () {
             dom.third.fadeIn();
@@ -121,6 +143,7 @@ define(function(require, exports, module) {
         var imgUrl = 'http://h5.ruyiso.com/qmkj/images/icon.png';
         var link = 'http://h5.ruyiso.com/qmkj/index.php';
         var success = function () {
+            log('Share');
         };
         wx.onMenuShareTimeline({
             title: title,

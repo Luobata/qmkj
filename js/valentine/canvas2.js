@@ -64,6 +64,14 @@ define(function (require, exports, module) {
         }
     }
 
+    function reset(boy) {
+        var imgArr = boy.children;
+        imgArr.forEach(function (item, index) {
+            item.alpha = 0;
+        });
+        imgArr[0].alpha = 1;
+    }
+
     function drawFirst() {
         var leftC = new PIXI.Container();
         var rightC = new PIXI.Container();
@@ -148,10 +156,10 @@ define(function (require, exports, module) {
 
         ticker.add(function (time) {
             timer += 1;
-            if (timer < 400) {
+            if (timer < 150) {
                 boyWalk(girl);
-                girl.x += 0.9;
-                boat.x -= 0.9;
+                girl.x += 1.5;
+                boat.x -= 1.5;
                 leftC.x -= 0.5;
                 leftT.x += 0.5;
                 textL.x += 0.5;
@@ -230,6 +238,9 @@ define(function (require, exports, module) {
         rightC.width = content.width() * 2;
         rightC.height = content.height();
 
+        reset(girl);
+        reset(boy);
+
         girl.x = 30 * rate;
         girl.y = 330 * rate;
 
@@ -261,8 +272,8 @@ define(function (require, exports, module) {
             timer++;
             boyWalk(girl);
             boyWalk(boy);
-            girl.x += 1.8;
-            boy.x -= 1.8;
+            girl.x += 2.9;
+            boy.x -= 2.9;
             leftC.x -= 1;
             leftT.x += 1;
             textL.x += 1;
@@ -275,7 +286,7 @@ define(function (require, exports, module) {
                 bg[1].alpha += 0.005;
                 bg2[0].alpha -= 0.005;
                 bg2[1].alpha += 0.005;
-            } else if (girl.x < content.width() * 3) {
+            } else if (girl.x < content.width() * 3 - 150 * rate) {
             //} else if (girl.x  < 0) {
                 timer2++;
             } else {
