@@ -139,7 +139,7 @@ define(function(require, exports, module) {
 
     var shareInit = function (type) {
         var title = '我们的爱跨域了多少距离';
-        var desc = '测下你和TA跨域多少距离才终于在一起';
+        var desc = '测下你和TA跨域了多少距离才终于在一起';
         var imgUrl = 'http://h5.ruyiso.com/qmkj/images/icon.png';
         var link = 'http://h5.ruyiso.com/qmkj/index.php';
         var success = function () {
