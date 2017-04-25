@@ -254,9 +254,43 @@ define(function(require, exports, module) {
         loop();
     };
 
+    var imgInit = function () {
+        var imgs = [
+            './images/mountain.png',
+            './images/sea-b.png',
+            './images/sea-rock.png',
+            './images/sea-boat.png',
+            './images/desert.png',
+            './images/castle-b.png',
+            './images/boy1.png',
+            './images/boy2.png',
+            './images/boy3.png',
+            './images/boy4.png',
+            './images/boy5.png',
+            './images/boy6.png',
+            './images/girl1.png',
+            './images/girl2.png',
+            './images/girl3.png',
+            './images/girl4.png',
+            './images/girl5.png',
+            './images/girl6.png'
+        ];
+
+        function preloadimages(arr){
+            var newimages=[]
+                var arr=(typeof arr!="object")? [arr] : arr  //确保参数总是数组
+                for (var i=0; i<arr.length; i++){
+                    newimages[i] = new Image();
+                    newimages[i].src=arr[i];
+                }
+        }
+        preloadimages(imgs);
+    }
+
 
     var init = function () {
         log(1);
+        imgInit();
         // enter();
         domInit();
         fadeInit();
