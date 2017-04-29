@@ -241,10 +241,10 @@ canvas {
     background-size: 100% auto;
     position: absolute;
     margin: auto;
-    left: 1.166666667rem;
+    left: 1.250000000rem;
     right: 0;
     bottom: 0;
-    top: 0;
+    top: 10.250000000rem;
     transform: scale(1);
     animation: mymove 1.5s infinite;
 }
@@ -256,6 +256,12 @@ canvas {
 }
 .textWrap .text {
     margin-top: 0.916666667rem;
+}
+.textWrap .text2 {
+    font-size: 1.250000000rem;
+}
+.textWrap .distance {
+    margin: 0 0.250000000rem;
 }
 #index .third .shareWrap {
     width: 100%;

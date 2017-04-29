@@ -108,7 +108,7 @@
             <span class="heart2"></span>
             <div class="textWrap">
                 <div class="text"><span class="myName"></span>和<span class="taName"></span></div>
-                <div class="text">跨越了<span class="distance"></span>公里</div>
+                <div class="text text2">我们的爱跨越了<span class="distance"></span>公里</div>
                 <div class="text showText">原来你一直在我身边，从未走远</div>
             </div>
             <div class="shareWrap">
@@ -152,7 +152,7 @@
         jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
     wx.ready(function () {
-        var version = 2016083346;
+        var version = 2016083347;
         seajs.config({
             charset: 'utf-8',
             timeout: 20000,
