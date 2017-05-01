@@ -20,7 +20,7 @@
         document.getElementsByTagName('html')[0].style['font-size'] =  rate + 'px';
     }());
 </script>
-    <audio style="display:none; height: 0" id="bg-music" preload="auto" src="./images/1.mp3" loop="loop" autoplay="true"></audio>
+    <audio style="display:none; height: 0" id="bg-music" preload="auto" src="./images/2.mp3" loop="loop" autoplay="true"></audio>
     <div id="index">
         <div class="first">
             <span class="boolean"></span>
@@ -153,6 +153,7 @@
     //     }
     //     audioAutoPlay();
     // });
+    var audio = document.getElementById('bg-music');
 
     wx.config({
         debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -163,6 +164,7 @@
         jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
     wx.ready(function () {
+        audio.play();
         var version = 2016083347;
         seajs.config({
             charset: 'utf-8',
@@ -173,6 +175,9 @@
             './js/valentine/index.js?v=' + version
         ]);
     });
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        audio.play();
+    }, false);
 </script>
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261805651'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261805651%26online%3D1' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
