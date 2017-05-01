@@ -20,6 +20,7 @@
         document.getElementsByTagName('html')[0].style['font-size'] =  rate + 'px';
     }());
 </script>
+    <audio style="display:none; height: 0" id="bg-music" preload="auto" src="./images/1.wma" loop="loop" autoplay="true"></audio>
     <div id="index">
         <div class="first">
             <span class="boolean"></span>
