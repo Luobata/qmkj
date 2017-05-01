@@ -20,7 +20,7 @@
         document.getElementsByTagName('html')[0].style['font-size'] =  rate + 'px';
     }());
 </script>
-    <audio style="display:none; height: 0" id="bg-music" preload="auto" src="./images/1.wma" loop="loop" autoplay="true"></audio>
+    <audio style="display:none; height: 0" id="bg-music" preload="auto" src="./images/1.mp3" loop="loop" autoplay="true"></audio>
     <div id="index">
         <div class="first">
             <span class="boolean"></span>
@@ -143,6 +143,16 @@
 <script type="text/javascript">
     var signStr = '<?php echo($signPackage); ?>';
     var sign = JSON.parse(signStr);
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     function audioAutoPlay() {
+    //         var audio = document.getElementById('bg-music');
+    //             audio.play();
+    //         document.addEventListener("WeixinJSBridgeReady", function () {
+    //             audio.play();
+    //         }, false);
+    //     }
+    //     audioAutoPlay();
+    // });
 
     wx.config({
         debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。

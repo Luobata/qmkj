@@ -244,7 +244,7 @@ canvas {
     left: 15px;
     right: 0;
     bottom: 0;
-    top: 123px;
+    top: 145px;
     transform: scale(1);
     animation: mymove 1.5s infinite;
 }
