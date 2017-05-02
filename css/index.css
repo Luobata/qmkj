@@ -259,6 +259,10 @@ canvas {
 }
 .textWrap .text2 {
     font-size: 15px;
+    margin-top: 10px;
+}
+.textWrap .showText {
+    margin-top: 15px;
 }
 .textWrap .distance {
     margin: 0 3px;
