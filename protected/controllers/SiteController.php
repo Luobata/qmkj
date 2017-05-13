@@ -46,6 +46,15 @@ class SiteController extends Controller
 		$this->renderPartial('valentine');
     }
 
+    public function actionDream() {
+		$sdk = new JSSDK($this->appId, $this->secret);
+		$signPackage = $sdk->getSignPackage();
+
+		$this->renderPartial('dream', array(
+			"signPackage" => CJSON::encode($signPackage)
+		));
+	}
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
