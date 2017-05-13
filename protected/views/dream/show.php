@@ -7,8 +7,8 @@
 <title>梦想集结号</title>
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./js/lib/reset.css" />
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/global.css" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="./css/dream.css?v=201608337" />
-<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/dream.css?v=201608337" /> -->
+<link rel="stylesheet" type="text/css" charset="utf-8" href="./css/show.css?v=201608337" />
+<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/show.css?v=201608337" /> -->
 </head>
 <body>
 <script type="text/javascript">
@@ -22,12 +22,100 @@
 </script>
     <div id="index">
         <div class="first">
-            <!-- <div class="header">在此刻认证记录我的梦想，写下后不再更改，并从此为它拼搏！
-            </div> -->
-            <div class="textarea-wrap">
-                <textarea class="text" row="6"></textarea>
+            <div class="header">
+                <div class="img-wrap">
+                    <img src="./images/dream/head-url.png">
+                </div>
+                <div class="con-wrap">
+                    <div class="name">糖果屋的小盒子</div>
+                    <div class="detail">
+                        <div class="text">
+                            <span class="date">2017年5月2日</span>
+                            写下了自己最初的梦想
+                        </div>
+                        <div class="text">
+                            <span class="day-num">xx</span>
+                            天后你踏上当初的梦想之路了吗？
+                        </div>
+                    </div>
+                    <div class="date-end">2018年5月2日</div>
+                </div>
+                <!-- <div class="rotate"></div> -->
             </div>
-            <div class="button">确认梦想</div>
+            <div class="line-wrap">
+                <div class="step-wrap">
+                    <div class="step-line-wrap">
+                        <div class="line-top"></div>
+                        <div class="step">
+                            <div class="circle-wrap">
+                                <span class="circle"></span>
+                            </div>
+                            <div class="img-wrap">
+                                <img src="./images/dream/head-url.png">
+                            </div>
+                            <div class="content">
+                                <div class="title">
+                                    <span class="title-name">萌萌小甜心</span>
+                                    <span class="title-heart"></span>
+                                </div>
+                                <div class="dream-txt">
+                                    <span class="border-top"></span>
+                                    <span class="txt">曾梦仗剑走天涯,去看看世界的繁华</span>
+                                    <span class="border-bottom"></span>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="step-line-wrap">
+                        <div class="line-top"></div>
+                        <div class="step">
+                            <div class="circle-wrap">
+                                <span class="circle"></span>
+                            </div>
+                            <div class="img-wrap">
+                                <img src="./images/dream/head-url.png">
+                            </div>
+                            <div class="content">
+                                <div class="title">
+                                    <span class="title-name">萌萌小甜心</span>
+                                    <span class="title-heart"></span>
+                                </div>
+                                <div class="dream-txt">
+                                    <span class="border-top"></span>
+                                    <span class="txt">曾梦仗剑走天涯,去看看世界的繁华</span>
+                                    <span class="border-bottom"></span>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="step-line-wrap">
+                        <div class="line-top"></div>
+                        <div class="step">
+                            <div class="circle-wrap">
+                                <span class="circle"></span>
+                            </div>
+                            <div class="img-wrap">
+                                <img src="./images/dream/head-url.png">
+                            </div>
+                            <div class="content">
+                                <div class="title">
+                                    <span class="title-name">萌萌小甜心</span>
+                                    <span class="title-heart"></span>
+                                </div>
+                                <div class="dream-txt">
+                                    <span class="border-top"></span>
+                                    <span class="txt">曾梦仗剑走天涯,去看看世界的繁华</span>
+                                    <span class="border-bottom"></span>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            
+            
+            <div class="button">邀请朋友填写</div>
         </div>
     </div>
 
@@ -60,10 +148,10 @@
             debug: 2
         });
         seajs.use([
-            './js/dream/index.js?v=' + version
+            './js/dream/show.js?v=' + version
         ]);
     });
 </script>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261805651'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261805651%26online%3D1' type='text/javascript'%3E%3C/script%3E"));</script>
+<!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261805651'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261805651%26online%3D1' type='text/javascript'%3E%3C/script%3E"));</script> -->
 </body>
 </html>
