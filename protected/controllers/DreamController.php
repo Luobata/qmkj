@@ -37,4 +37,13 @@ class DreamController extends Controller {
             "signPackage" => CJSON::encode($signPackage)
         ));
     }
+
+    public function actionShare() {
+        $sdk = new JSSDK($this->appId, $this->secret);
+        $signPackage = $sdk->getSignPackage();
+
+        $this->renderPartial('share', array(
+            "signPackage" => CJSON::encode($signPackage)
+        ));
+    }
 }

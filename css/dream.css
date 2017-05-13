@@ -37,7 +37,7 @@ html,body {
     height:  228px;
     background: url('../images/dream/textarea.png') no-repeat;
     background-size: 100% 100%;
-    margin: 190px auto 0;
+    margin: 190px auto 20px;;
 }
 .textarea-wrap .text {
     background-color: transparent;
