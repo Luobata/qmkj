@@ -8,6 +8,7 @@ class Dream extends CActiveRecord {
     public $dream;
     public $startTime;
     public $openId;
+    public $sex;
 
     public static function model($className=__CLASS__)
     {

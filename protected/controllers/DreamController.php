@@ -64,12 +64,10 @@ class DreamController extends Controller {
             $dreamList = Dream::model()->findAll('userId=:userId', array(
                 ':userId' => $userInfo['userId']
             ));
-            var_dump(time());
-            $startTime = date("Y年m月d日", $dreamList[0]->startTime/ 1000);
+            $startTime = date("Y年m月d日", $dreamList[0]->startTime / 1000);
             $leftTime = date("d", time() - $dreamList[0]->startTime / 1000);
+            $leftTime = floor((time() - $dreamList[0]->startTime / 1000) / 3600 / 24);
             $today = date("Y年m月d日", time());;
-            var_dump($leftTime);
-            // exit();
 
             $this->renderPartial('show', array(
                 "signPackage" => CJSON::encode($signPackage),
@@ -113,8 +111,22 @@ class DreamController extends Controller {
         $sdk = new JSSDK($this->appId, $this->secret);
         $signPackage = $sdk->getSignPackage();
 
+        $userInfo = array(
+            "userId" => isset($_GET['userId']) ? $_GET['userId'] : '',
+            "openId" => $_GET['openId']
+        );
+
+        $dreamItem = Dream::model()->find('openId=:openId and userId=:userId', array(
+            ':openId' => $_GET['userId'],
+            ':userId' => $_GET['userId']
+        ));
+        $time = date("Y年m月d日", $dreamItem->startTime / 1000);
+
         $this->renderPartial('share', array(
-            "signPackage" => CJSON::encode($signPackage)
+            "signPackage" => CJSON::encode($signPackage),
+            "user" => CJSON::encode($userInfo),
+            "dreamItem" => $dreamItem,
+            "time" => $time
         ));
     }
 

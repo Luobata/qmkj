@@ -24,11 +24,12 @@
         <div class="first">
             <div class="top">
                 <div class="person">
-                    小萌萌同学在xx年xx月xx号 写下了她的梦想：
+                    <?php echo($dreamItem->nickname); ?>在<?php echo($time); ?> 写下了<?php if ($dreamItem->sex == 2) { ?>她
+                    <?php } else { ?>他<?php } ?>的梦想：
                 </div>
-                <div class="dream">仗剑走天涯仗剑走天涯仗剑走天涯仗剑走天涯仗剑走天涯仗剑走天涯仗剑走天涯仗剑走天涯仗剑走天涯仗剑走天涯</div>
+                <div class="dream"><?php echo($dreamItem->dream); ?></div>
             </div>
-            <div class="middle">快点此记录你的梦想，跟小萌萌同学一起并肩战斗吧~~~</div>
+            <div class="middle">快点此记录你的梦想，跟<?php echo($dreamItem->nickname); ?>一起并肩战斗吧~~~</div>
             <div class="button">写下我的梦想</div>
         </div>
     </div>
@@ -45,6 +46,9 @@
 <script type="text/javascript">
     var signStr = '<?php echo($signPackage); ?>';
     var sign = JSON.parse(signStr);
+    var userInfo = '<?php echo($user); ?>';
+    var sign = JSON.parse(signStr);
+    window.userInfo = JSON.parse(userInfo);
 
     wx.config({
         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -62,7 +66,7 @@
             debug: 2
         });
         seajs.use([
-            './js/dream/index.js?v=' + version
+            './js/dream/share.js?v=' + version
         ]);
     });
 </script>
