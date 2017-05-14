@@ -74,6 +74,7 @@ html,body {
     height: 70.5px;
     border-radius: 70.5px;
     vertical-align: middle;
+    background: #fff;
 }
 .first .header .con-wrap {
     margin-left: 11px;
@@ -127,7 +128,7 @@ html,body {
     width: 200px;
     text-align: left;
     font-size: 0;
-    margin: -20px 0;
+    /*margin: -20px 0;*/
 }
 .step-wrap .line-top {
     width: 1px;
@@ -190,11 +191,13 @@ html,body {
     height: 33px;
     border-radius: 33px;
     vertical-align: middle;
+    background: #fff;
 }
 .step .content {
     margin-left: 9px;
     display: inline-block;
     vertical-align: middle;
+    position: absolute;
 }
 .step .content .title {
 
@@ -224,6 +227,7 @@ html,body {
     display: inline-block;
     max-width: 88px;
     line-height: 15px;
+    word-wrap:break-word
 }
 .step .content .dream-txt .border-top {
     width: 8px;

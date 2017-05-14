@@ -29,6 +29,12 @@
             </div>
             <div class="button">确认梦想</div>
         </div>
+        <div class="tip">
+            <div class="tip-content">
+                <span class="tip-text">请填写你的梦想</span>
+                <span class="ok-button">确定</span>
+            </div>
+        </div>
     </div>
 
 
@@ -42,7 +48,9 @@
 <script type="text/javascript" charset="utf-8" src="./js/lib/sea.js"></script>
 <script type="text/javascript">
     var signStr = '<?php echo($signPackage); ?>';
+    var userInfo = '<?php echo($user); ?>';
     var sign = JSON.parse(signStr);
+    window.userInfo = JSON.parse(userInfo);
 
     wx.config({
         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。

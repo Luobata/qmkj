@@ -24,27 +24,27 @@
         <div class="first">
             <div class="header">
                 <div class="img-wrap">
-                    <img src="./images/dream/head-url.png">
+                    <img src="<?php echo($dreamList[0]->headimgurl); ?>">
                 </div>
                 <div class="con-wrap">
-                    <div class="name">糖果屋的小盒子</div>
+                    <div class="name"><?php echo($dreamList[0]->nickname); ?></div>
                     <div class="detail">
                         <div class="text">
-                            <span class="date">2017年5月2日</span>
+                            <span class="date"><?php echo($startTime); ?></span>
                             写下了自己最初的梦想
                         </div>
                         <div class="text">
-                            <span class="day-num">xx</span>
+                            <span class="day-num"><?php echo($leftTime); ?></span>
                             天后你踏上当初的梦想之路了吗？
                         </div>
                     </div>
-                    <div class="date-end">2018年5月2日</div>
+                    <div class="date-end"><?php echo($today); ?></div>
                 </div>
                 <!-- <div class="rotate"></div> -->
             </div>
             <div class="line-wrap">
                 <div class="step-wrap">
-                    <div class="step-line-wrap">
+<!--                     <div class="step-line-wrap">
                         <div class="line-top"></div>
                         <div class="step">
                             <div class="circle-wrap">
@@ -87,7 +87,9 @@
                                 </div>
                             </div>
                         </div>  
-                    </div>
+                    </div> -->
+                    
+                    <?php foreach ($dreamList as $i) { ?>
                     <div class="step-line-wrap">
                         <div class="line-top"></div>
                         <div class="step">
@@ -95,21 +97,22 @@
                                 <span class="circle"></span>
                             </div>
                             <div class="img-wrap">
-                                <img src="./images/dream/head-url.png">
+                                <img src="<?php echo($i->headimgurl); ?>">
                             </div>
                             <div class="content">
                                 <div class="title">
-                                    <span class="title-name">萌萌小甜心</span>
+                                    <span class="title-name"><?php echo($i->nickname); ?></span>
                                     <span class="title-heart"></span>
                                 </div>
                                 <div class="dream-txt">
                                     <span class="border-top"></span>
-                                    <span class="txt">曾梦仗剑走天涯,去看看世界的繁华</span>
+                                    <span class="txt"><?php echo($i->dream); ?></span>
                                     <span class="border-bottom"></span>
                                 </div>
                             </div>
                         </div>  
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="line"></div>
             </div>
@@ -131,7 +134,8 @@
 <script type="text/javascript">
     var signStr = '<?php echo($signPackage); ?>';
     var sign = JSON.parse(signStr);
-
+    var dreamList = '<?php ($dreamList); ?>';
+    console.log((dreamList));
     wx.config({
         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         appId: sign.appId, // 必填，公众号的唯一标识

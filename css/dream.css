@@ -68,3 +68,50 @@ html,body {
     border: 1px solid #eb6877;
     margin: 77px auto 0;
 }
+
+.tip {
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    z-index: 10000;
+    text-align: center;
+    display: none;
+}
+.tip .tip-content {
+    width: 235px;
+    height: 127.5px;
+    border-radius: 6px;
+    display: inline-block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+}
+.tip .tip-content .tip-text {
+    font-size: 18px;
+    color: #5a1b19;
+    font-family: microsoft yahei;
+    display: block;
+    margin: 34px 0 0 0;
+}
+.tip .tip-content .ok-button {
+    width: 175px;
+    height: 40px;
+    line-height: 40px;
+    margin: 24px 0 0 0;
+    display: inline-block;
+    color: #fff;
+    background-color: #e89492;
+    font-size: 18px;
+    font-family: microsoft yahei;
+    border-radius: 5px;
+    text-align: center;
+}
