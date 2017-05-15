@@ -187,6 +187,7 @@ class DreamController extends Controller {
             $dreamItem->nickname = $_POST['nickname'];
             $dreamItem->dream = $_POST['dream'];
             $dreamItem->startTime = $_POST['startTime'];
+            $dreamItem->sex = $_POST['sex'];
             $dreamItem->save();
             $back = array(
                 'code' => 200,
