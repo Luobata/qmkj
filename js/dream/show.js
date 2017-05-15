@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
     var exports = {};
     var dom = {};
+    var share = require('../valentine/share.js');
 
     function domInit() {
         dom.index = $('#index');
@@ -10,6 +11,10 @@ define(function(require, exports, module) {
         dom.stepWrap = dom.index.find('.step-wrap');
         dom.button = dom.index.find('.button');
         dom.line = dom.index.find('.line');
+
+        dom.button.bind('tap', function () {
+            share.init(dom.index);
+        });
     }
 
     function lineInit() {

@@ -23,28 +23,30 @@ class UserLogin
         $url .= '&code='.$code;
         $url .= '&grant_type=authorization_code';
  
-        $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,$url);
-        curl_setopt($ch,CURLOPT_HEADER,0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 500);
-        $data = curl_exec($ch);
-        $data = json_decode($data,true);
-        curl_close($ch);
+        $data = json_decode($this->httpGet($url));
  
-        $access_token = $data['access_token'];
-        $openid = $data['openid'];
+        $access_token = $data->access_token;
+        $openid = $data->openid;
         $get_user_info_url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN';
  
-        $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,$get_user_info_url);
-        curl_setopt($ch,CURLOPT_HEADER,0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-        $res = curl_exec($ch);
-        curl_close($ch);
-　　　　//返回的是一个数组，里面存放用户的信息
-        $res = json_decode($res,true);
- 
+        $res = json_decode($this->httpGet($get_user_info_url));
+
+;
+        return $res;
+    }
+
+    private function httpGet($url)
+    {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 500);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($curl, CURLOPT_URL, $url);
+
+        $res = curl_exec($curl);
+        curl_close($curl);
+
+        return $res;
     }
 }

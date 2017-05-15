@@ -260,3 +260,28 @@ html,body {
     float: left;
     margin: 0 6px 0 0;
 }
+
+/* 分享二级页面 */
+.module-share {
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+.module-share.out {
+    left: 100%;
+}
+.module-share .img-share {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.module-share .img-share .share-icon {
+    width: 120px;
+    height: 82px;
+}
