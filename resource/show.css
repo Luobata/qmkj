@@ -68,6 +68,7 @@ html,body {
     box-sizing: border-box;
     font-size: 0;
     vertical-align: top;
+    position: relative;
 }
 .first .header .img-wrap img {
     width: 5.875000000rem;
@@ -75,6 +76,12 @@ html,body {
     border-radius: 5.875000000rem;
     vertical-align: middle;
     background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
 }
 .first .header .con-wrap {
     margin-left: 0.916666667rem;
@@ -185,6 +192,7 @@ html,body {
     text-align: center;
     background-color: #ff7867;
     margin-left: 0.791666667rem;
+    position: relative;
 }
 .step .img-wrap img {
     width: 2.750000000rem;
@@ -192,6 +200,12 @@ html,body {
     border-radius: 2.750000000rem;
     vertical-align: middle;
     background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
 }
 .step .content {
     margin-left: 0.750000000rem;
