@@ -200,7 +200,7 @@ html,body {
     position: absolute;
 }
 .step .content .title {
-
+    white-space: nowrap;
 }
 .step .content .title-name {
     font-size: 1.000000000rem;
@@ -227,7 +227,7 @@ html,body {
     display: inline-block;
     max-width: 7.333333333rem;
     line-height: 1.250000000rem;
-    word-wrap:break-word
+    word-wrap:break-word;
 }
 .step .content .dream-txt .border-top {
     width: 0.666666667rem;
