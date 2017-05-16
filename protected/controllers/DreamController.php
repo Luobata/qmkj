@@ -55,6 +55,12 @@ class DreamController extends Controller {
             ':openId' => $userInfo->openId,
             ':userId' => $userId
         ));
+        $dreamItem2 = Dream::model()->find('openId=:openId and userId=:userId', array(
+            ':openId' => $userInfo->openId,
+            ':userId' => $userInfo->openId
+        ));
+        // var_dump($dreamItem2);
+        // exit();
 
         if (!$dreamItem) {
             $this->renderPartial('dream', array(
@@ -184,7 +190,10 @@ class DreamController extends Controller {
         if ($dreamItem) {
             $back = array(
                 'code' => 300,
-                'msg' => '该用户已经填写过梦想'
+                'msg' => '该用户已经填写过梦想',
+                'data' => array(
+                    'userId' => $userId
+                )
             );
         } else {
             $dreamItem = new Dream;
