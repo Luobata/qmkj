@@ -1626,3 +1626,14 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/qmkj/index.php?r=dream/index
 ---
+2017/05/16 14:53:48 [error] [php] Undefined index: userId (F:\wamp\www\qmkj\protected\controllers\DreamController.php:163)
+Stack trace:
+#0 F:\wamp\www\framework\web\CController.php(286): DreamController->runAction()
+#1 F:\wamp\www\framework\web\CController.php(265): DreamController->runActionWithFilters()
+#2 F:\wamp\www\framework\web\CWebApplication.php(282): DreamController->run()
+#3 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 F:\wamp\www\qmkj\index.php(13): CWebApplication->run()
+REQUEST_URI=/qmkj/index.php?r=dream/share&code=061qCmQ70hhRVK1PfGQ70wvIQ70qCmQc&state=1
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (163)
+in F:\wamp\www\qmkj\index.php (13)

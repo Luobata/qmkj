@@ -147,11 +147,17 @@ class DreamController extends Controller {
     public function actionShare() {
         $sdk = new JSSDK($this->appId, $this->secret);
         $signPackage = $sdk->getSignPackage();
+        $dreamForm = new DreamForm();
+        $userInfo = $dreamForm->checkLogin();
+        $returnUrl = Yii::app()->request->url;
 
-        $userInfo = array(
-            "userId" => isset($_GET['userId']) ? $_GET['userId'] : '',
-            "openId" => $_GET['openId']
-        );
+        if ($userInfo == false) {
+            $this->redirect($this->createUrl("dream/login", array(
+                "returnUrl" => urlencode($returnUrl),
+            )));
+            exit;
+        }
+        $userId = isset($_GET['userId']) ? $_GET['userId'] : '';
 
         $dreamItem = Dream::model()->find('openId=:openId and userId=:userId', array(
             ':openId' => $_GET['userId'],
@@ -162,6 +168,7 @@ class DreamController extends Controller {
         $this->renderPartial('share', array(
             "signPackage" => CJSON::encode($signPackage),
             "user" => CJSON::encode($userInfo),
+            "userId" => $userId,
             "dreamItem" => $dreamItem,
             "time" => $time
         ));

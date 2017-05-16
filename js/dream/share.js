@@ -9,7 +9,7 @@ define(function(require, exports, module) {
 
     function eventBind() {
         dom.button.bind('tap', function () {
-            var url = './index.php?r=dream/index/userId/' + window.userInfo.userId;
+            var url = './index.php?r=dream/index/userId/' + window.userId;
             url += '/code/1/openId/1';
             window.location.href = url;
         });

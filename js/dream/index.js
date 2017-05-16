@@ -27,7 +27,7 @@ define(function(require, exports, module) {
                 if (data.code !== 200) {
                     tip(data.msg);
                 } else {
-                    window.location.href = "./index.php?r=dream/index/userId/" + window.userInfo.openId
+                    window.location.href = "./index.php?r=dream/share/userId/" + window.userInfo.openId
                 }
             }
         });

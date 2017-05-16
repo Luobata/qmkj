@@ -22,13 +22,25 @@
 </script>
     <div id="index">
         <div class="first">
-            <div class="top">
+            <div class="tops">
+                <div class="top-header">
+                    <div class="person">
+                        <?php echo($dreamItem->nickname); ?>在<?php echo($time); ?> 写下了<?php if ($dreamItem->sex == 2) { ?>她
+                        <?php } else { ?>他<?php } ?>的梦想：
+                    </div>
+                </div>
+                <div class="top-con">
+                    <div class="dream"><?php echo($dreamItem->dream); ?></div>
+                </div>
+                <div class="top-footer"></div>
+            </div>
+            <!-- <div class="top">
                 <div class="person">
                     <?php echo($dreamItem->nickname); ?>在<?php echo($time); ?> 写下了<?php if ($dreamItem->sex == 2) { ?>她
                     <?php } else { ?>他<?php } ?>的梦想：
                 </div>
                 <div class="dream"><?php echo($dreamItem->dream); ?></div>
-            </div>
+            </div> -->
             <div class="middle">快点此记录你的梦想，跟<?php echo($dreamItem->nickname); ?>一起并肩战斗吧~~~</div>
             <div class="button">写下我的梦想</div>
         </div>
@@ -49,6 +61,7 @@
     var userInfo = '<?php echo($user); ?>';
     var sign = JSON.parse(signStr);
     window.userInfo = JSON.parse(userInfo);
+    window.userId = '<?php echo($userId)?>';
 
     wx.config({
         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
