@@ -92,6 +92,11 @@ html,body {
     font-size: 1.250000000rem;
     color: #fff;
 }
+.con-wrap .name .rank {
+    font-size: 1.000000000rem;
+    font-weight: 500;
+    margin-left: 0.833333333rem;
+}
 .con-wrap .detail {
     margin: 0.833333333rem 0 0 0;
 }

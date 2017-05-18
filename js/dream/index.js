@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
     var exports = {};
     var dom = {};
+    var shareInit = require('./share-init.js');
 
     function tip(txt) {
         dom.tipC.text(txt);
@@ -10,8 +11,8 @@ define(function(require, exports, module) {
     function sendDream(txt) {
         var data = {
             openId: window.userInfo.openId,
-            nickname: window.userInfo.nickname || '罗比塔',
-            headimgurl: window.userInfo.headimgurl || '123',
+            nickname: window.userInfo.nickname || '匿名网友',
+            headimgurl: window.userInfo.headimgurl || 'http://h5.ruyiso.com/qmkj/images/heart.png',
             dream: txt,
             userId: window.userId || window.userInfo.openId,
             startTime: new Date().getTime(),
@@ -61,37 +62,21 @@ define(function(require, exports, module) {
             }
         });
     }
-    function shareInit (type) {
-        var title = '我们的爱跨域了多少距离';
-        var desc = '测下你和TA跨域了多少距离才终于在一起';
-        var imgUrl = 'http://h5.ruyiso.com/qmkj/images/icon.png';
-        var link = 'http://h5.ruyiso.com/qmkj/index.php?r=dream/share/userId/' + window.userId;
-        var success = function () {
-            //log('Share');
-        };
-        wx.onMenuShareTimeline({
-            title: title,
-            desc: desc,
-            link: link,
-            imgUrl: imgUrl,
-            success: success,
-            cancel: function () {
-            }
-        });
-        wx.onMenuShareAppMessage({
-            title: title,
-            desc: desc,
-            link: link,
-            imgUrl: imgUrl,
-            success: success,
-            cancel: function () {
-            }
-        });
+    function shareInits (type) {
+        var userId = window.userId;
+        var url;
+        if (userId) {
+            url = 'http://h5.ruyiso.com/qmkj/index.php?r=dream/share/userId/' + window.userId;
+        } else {
+            url = 'http://h5.ruyiso.com/qmkj/index.php?r=dream';
+        }
+        shareInit(true, url);
     };
 
     var init = function () {
         domInit();
         eventBind();
+        shareInits();
     };
 
     init();

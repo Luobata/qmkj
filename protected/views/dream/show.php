@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
-<title>梦想集结号</title>
+<title>不忘初心•梦想集结号</title>
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./js/lib/reset.css" />
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/global.css" />
 <!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/show.css?v=201608337" /> -->
@@ -27,7 +27,9 @@
                     <img src="<?php echo($dreamList[0]->headimgurl); ?>">
                 </div>
                 <div class="con-wrap">
-                    <div class="name"><?php echo($dreamList[0]->nickname); ?></div>
+                    <div class="name"><?php echo($dreamList[0]->nickname); ?>
+                        <span class="rank">第<?php echo($rank); ?>位写下初心的人</span>
+                    </div>
                     <div class="detail">
                         <div class="text">
                             <span class="date"><?php echo($startTime); ?></span>
@@ -135,7 +137,7 @@
     var signStr = '<?php echo($signPackage); ?>';
     var sign = JSON.parse(signStr);
     var dreamList = '<?php ($dreamList); ?>';
-    console.log((dreamList));
+    window.userId = '<?php echo($userId)?>';
     wx.config({
         debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         appId: sign.appId, // 必填，公众号的唯一标识

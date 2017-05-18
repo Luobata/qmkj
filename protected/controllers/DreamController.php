@@ -50,6 +50,7 @@ class DreamController extends Controller {
         //     "userId" => isset($_GET['userId']) ? $_GET['userId'] : '',
         //     "openId" => $_GET['openId']
         // );
+        // var_dump($userInfo->id);
 
         $dreamItem = Dream::model()->find('openId=:openId and userId=:userId', array(
             ':openId' => $userInfo->openId,
@@ -81,6 +82,7 @@ class DreamController extends Controller {
             $this->renderPartial('show', array(
                 "signPackage" => CJSON::encode($signPackage),
                 "user" => CJSON::encode($userInfo),
+                "rank" => $userInfo->id,
                 "userId" => $userId,
                 "dreamList" => $dreamList,
                 "startTime" => $startTime,

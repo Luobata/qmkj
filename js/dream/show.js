@@ -2,6 +2,7 @@ define(function(require, exports, module) {
     var exports = {};
     var dom = {};
     var share = require('../valentine/share.js');
+    var shareInit = require('./share-init.js');
 
     function domInit() {
         dom.index = $('#index');
@@ -34,6 +35,7 @@ define(function(require, exports, module) {
     var init = function () {
         domInit();
         lineInit();
+        shareInit(true, 'http://h5.ruyiso.com/qmkj/index.php?r=dream/share/userId/' + window.userId);
     };
 
     init();
