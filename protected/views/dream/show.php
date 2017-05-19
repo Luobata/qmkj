@@ -23,9 +23,11 @@
     <div id="index">
         <div class="first">
             <div class="header">
-                <div class="img-wrap">
-                    <img src="<?php echo($dreamList[0]->headimgurl); ?>">
+                <div class="rotate-logo">
                 </div>
+                <!-- <div class="img-wrap">
+                    <img src="<?php echo($dreamList[0]->headimgurl); ?>">
+                </div> -->
                 <div class="con-wrap">
                     <div class="name"><?php echo($dreamList[0]->nickname); ?>
                         <span class="rank">第<?php echo($rank); ?>位写下初心的人</span>
@@ -121,6 +123,7 @@
             
             
             <div class="button">邀请朋友填写</div>
+            <div class="logo"></div>
         </div>
     </div>
 

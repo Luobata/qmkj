@@ -12,6 +12,7 @@ define(function(require, exports, module) {
         dom.stepWrap = dom.index.find('.step-wrap');
         dom.button = dom.index.find('.button');
         dom.line = dom.index.find('.line');
+        dom.logo = dom.index.find('.logo');
 
         dom.button.bind('tap', function () {
             share.init(dom.index);
@@ -28,7 +29,9 @@ define(function(require, exports, module) {
             parseFloat(dom.button.css('border-width')) * 2 +
             parseFloat(dom.button.css('margin-bottom')) +
             parseFloat(dom.button.css('margin-top'));
-        var lineHeight = bodyHeight - (headerHeight + stepHeight + buttonHeight);
+        var logoHeight = dom.logo.height() +
+            parseFloat(dom.logo.css('margin-bottom'));
+        var lineHeight = bodyHeight - (headerHeight + stepHeight + buttonHeight + logoHeight);
         dom.line.css('height', lineHeight > 100 ? lineHeight + 'px' : '100px');
     }
 

@@ -37,13 +37,20 @@ html,body {
     width: 100%;
     height: 115.6px;
     height: 110px;
-    padding: 14px 0 0 11px;
+    padding: 0 0 0 11px;
     box-sizing: border-box;
     text-align: left;
     /*background: rgba(213, 95, 108, 0.8);*/
     /*background: url('../images/dream/header.png') no-repeat;*/
     background-size: 100% 100%;
     position: relative;
+}
+.first .header .rotate-logo {
+    width: 66px;
+    height: 96.5px;
+    display: inline-block;
+    background: url('../images/dream/rotate.gif') no-repeat;
+    background-size: 100% 100%;
 }
 .first .header .rotate {
     width: 10px;
@@ -86,6 +93,8 @@ html,body {
 .first .header .con-wrap {
     margin-left: 11px;
     display: inline-block;
+    vertical-align: top;
+    padding-top: 14px;
     /*font-weight: 600;*/
 }
 .con-wrap .name {
@@ -126,8 +135,8 @@ html,body {
 }
 .first .line {
     width: 1px;
-    height: 100%;
-    height: 200px;
+    /*height: 100%;*/
+    height: 185px;
     background-color: #eb6877;
 }
 
@@ -303,4 +312,12 @@ html,body {
 .module-share .img-share .share-icon {
     width: 120px;
     height: 82px;
+}
+.first .logo {
+    width: 110.5px;
+    height: 68px;
+    display: inline-block;
+    background: url('../images/dream/logo.png') no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 16px;
 }
