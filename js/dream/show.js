@@ -31,8 +31,8 @@ define(function(require, exports, module) {
             parseFloat(dom.button.css('margin-top'));
         var logoHeight = dom.logo.height() +
             parseFloat(dom.logo.css('margin-bottom'));
-        var lineHeight = bodyHeight - (headerHeight + stepHeight + buttonHeight + logoHeight);
-        dom.line.css('height', lineHeight > 100 ? lineHeight + 'px' : '100px');
+        var lineHeight = bodyHeight - (headerHeight + stepHeight + buttonHeight + logoHeight) - 88;
+        dom.line.css('height', lineHeight > 90 ? lineHeight + 'px' : '100px');
     }
 
     var init = function () {
