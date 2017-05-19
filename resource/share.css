@@ -26,7 +26,7 @@ html,body {
     min-height: 16.125000000rem;
     background: url('../images/dream/text-show.png') no-repeat;
     background-size: 100% 100%;
-    margin: 5.833333333rem auto 0;
+    margin: 5.000000000rem auto 0;
     overflow: hidden;
     padding: 2.583333333rem 2.666666667rem 2.916666667rem;
     box-sizing: border-box;
@@ -35,7 +35,7 @@ html,body {
     width: 22.583333333rem;
     /*min-height: 16.125000000rem;*/
     background-size: 100% 100%;
-    margin: 5.833333333rem auto 0;
+    margin: 5.000000000rem auto 0;
     overflow: hidden;
     /*padding: 2.583333333rem 2.666666667rem 2.916666667rem;*/
     box-sizing: border-box;
@@ -102,7 +102,7 @@ html,body {
     padding: 1.250000000rem 1.416666667rem;
     background-color: #f48e99;
     text-align: left;
-    margin-top: 3.916666667rem;
+    margin-top: 2.250000000rem;
 }
 .first .logo {
     width: 9.208333333rem;

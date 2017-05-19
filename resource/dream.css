@@ -1,6 +1,6 @@
 html,body {
     height: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 #index {
     width: 100%;
@@ -10,7 +10,7 @@ html,body {
 }
 #index .first {
     width: 100%;
-    /*height: 100%;*/
+    height: 100%;
     /*overflow: hidden;*/
     background: url('../images/dream/background.png') no-repeat;
     background-size: 100% 100%;
@@ -38,7 +38,7 @@ html,body {
     height:  19.000000000rem;
     background: url('../images/dream/textarea.png') no-repeat;
     background-size: 100% auto;
-    margin: 15.000000000rem auto 1.666666667rem;;
+    margin: 13.000000000rem auto 1.666666667rem;;
 }
 .textarea-wrap .text {
     background-color: transparent;

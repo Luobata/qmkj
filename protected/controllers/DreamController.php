@@ -77,12 +77,13 @@ class DreamController extends Controller {
             $leftTime = date("d", time() - $dreamList[0]->startTime / 1000);
             $leftTime = floor((time() - $dreamList[0]->startTime / 1000) / 3600 / 24);
             if ($leftTime < 0) $leftTime = 0;
-            $today = date("Y年m月d日", time());;
+            $today = date("Y年m月d日", time());
+            $rank = $dreamForm->loadUserByOpenId($dreamList[0]->openId, true);
 
             $this->renderPartial('show', array(
                 "signPackage" => CJSON::encode($signPackage),
                 "user" => CJSON::encode($userInfo),
-                "rank" => $userInfo->id,
+                "rank" => $rank->id,
                 "userId" => $userId,
                 "dreamList" => $dreamList,
                 "startTime" => $startTime,
