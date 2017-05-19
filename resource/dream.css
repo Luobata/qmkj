@@ -38,7 +38,7 @@ html,body {
     height:  19.000000000rem;
     background: url('../images/dream/textarea.png') no-repeat;
     background-size: 100% auto;
-    margin: 13.000000000rem auto 1.666666667rem;;
+    margin: 13.000000000rem auto 0.833333333rem;
 }
 .textarea-wrap .text {
     background-color: transparent;
@@ -127,7 +127,7 @@ html,body {
     display: inline-block;
     background: url('../images/dream/logo.png') no-repeat;
     background-size: 100% 100%;
-    margin-top: 1.666666667rem;
+    margin-top: 0.833333333rem;
     margin-bottom: 1.333333333rem;
     /*position: absolute;
     left: 0;
