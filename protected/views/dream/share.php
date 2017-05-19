@@ -43,6 +43,7 @@
             </div> -->
             <div class="middle">快点此记录你的梦想，跟<?php echo($dreamItem->nickname); ?>一起并肩战斗吧~~~</div>
             <div class="button">写下我的梦想</div>
+            <div class="logo"></div>
         </div>
     </div>
 

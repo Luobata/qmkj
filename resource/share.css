@@ -66,7 +66,7 @@ html,body {
 }
 
 .first .button {
-    width: 18.916666667rem;
+    width: 23.333333333rem;
     height: 2.833333333rem;
     line-height: 2.750000000rem;
     background-color: #ffffff;
@@ -76,7 +76,7 @@ html,body {
     font-weight: 600;
     border-radius: 3.333333333rem;
     border: 0.083333333rem solid #eb6877;
-    margin: 6.416666667rem auto 1.666666667rem;;
+    margin: 3.416666667rem auto 1.666666667rem;;
 }
 .top .person,
 .tops .person {
@@ -103,4 +103,12 @@ html,body {
     background-color: #f48e99;
     text-align: left;
     margin-top: 3.916666667rem;
+}
+.first .logo {
+    width: 9.208333333rem;
+    height: 5.666666667rem;
+    display: inline-block;
+    background: url('../images/dream/logo.png') no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 1.333333333rem;
 }
