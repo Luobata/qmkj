@@ -52,32 +52,32 @@ class DreamController extends Controller {
         // );
         // var_dump($userInfo->id);
 
-        $dreamItem = Dream::model()->find('openId=:openId and userId=:userId', array(
-            ':openId' => $userInfo->openId,
-            ':userId' => $userId
-        ));
+        // $dreamItem = Dream::model()->find('openId=:openId and userId=:userId', array(
+        //     ':openId' => $userInfo->openId,
+        //     ':userId' => $userId
+        // ));
         $dreamItem2 = Dream::model()->find('openId=:openId and userId=:userId', array(
             ':openId' => $userInfo->openId,
             ':userId' => $userInfo->openId
         ));
         // var_dump($dreamItem2);
         // exit();
-        if ($dreamItem2 && !$userId) {
-            $this->redirect($this->createUrl("dream/index", array(
-                "userId" => urlencode($dreamItem2->userId),
-            )));
-            exit;
-        }
+        // if ($dreamItem2 && !$userId) {
+        //     $this->redirect($this->createUrl("dream/index", array(
+        //         "userId" => urlencode($dreamItem2->userId),
+        //     )));
+        //     exit;
+        // }
 
-        if (!$dreamItem) {
+        if (!$dreamItem2) {
             $this->renderPartial('dream', array(
                 "signPackage" => CJSON::encode($signPackage),
                 "user" => CJSON::encode($userInfo),
-                "userId" => $userId
+                "userId" => $userInfo->openId
             ));
         } else {
             $dreamList = Dream::model()->findAll('userId=:userId', array(
-                ':userId' => $userId
+                ':userId' => $userInfo->openId
             ));
             $startTime = date("Y年m月d日", $dreamList[0]->startTime / 1000);
             $leftTime = date("d", time() - $dreamList[0]->startTime / 1000);
@@ -90,7 +90,7 @@ class DreamController extends Controller {
                 "signPackage" => CJSON::encode($signPackage),
                 "user" => CJSON::encode($userInfo),
                 "rank" => $rank->id,
-                "userId" => $userId,
+                "userId" => $userInfo->openId,
                 "dreamList" => $dreamList,
                 "startTime" => $startTime,
                 "leftTime" => $leftTime,
@@ -202,19 +202,27 @@ class DreamController extends Controller {
     public function actionAdd() {
         $openId = $_POST['openId'];
         $userId = $_POST['userId'];
+
+        $dreamItem2 = Dream::model()->find('openId=:openId and userId=:userId', array(
+            ':openId' => $openId,
+            ':userId' => $openId
+        ));
+        if (!$dreamItem2) {
+            $dreamItem2 = new Dream;
+            $dreamItem2->userId = $openId;
+            $dreamItem2->openId = $openId;
+            $dreamItem2->headimgurl = $_POST['headimgurl'];
+            $dreamItem2->nickname = $_POST['nickname'];
+            $dreamItem2->dream = $_POST['dream'];
+            $dreamItem2->startTime = $_POST['startTime'];
+            $dreamItem2->sex = $_POST['sex'];
+            $dreamItem2->save();
+        }
         $dreamItem = Dream::model()->find('openId=:openId and userId=:userId', array(
             ':openId' => $openId,
             ':userId' => $userId
         ));
-        if ($dreamItem) {
-            $back = array(
-                'code' => 300,
-                'msg' => '该用户已经填写过梦想',
-                'data' => array(
-                    'userId' => $userId
-                )
-            );
-        } else {
+        if (!$dreamItem) {
             $dreamItem = new Dream;
             $dreamItem->userId = $userId;
             $dreamItem->openId = $openId;
@@ -224,11 +232,20 @@ class DreamController extends Controller {
             $dreamItem->startTime = $_POST['startTime'];
             $dreamItem->sex = $_POST['sex'];
             $dreamItem->save();
-            $back = array(
-                'code' => 200,
-                'msg' => ''
-            );
+            // $back = array(
+            //     'code' => 200,
+            //     'msg' => ''
+            // );
         }
+        // echo($dreamItem2->$userId);
+        // return;
+        $back = array(
+            'code' => 300,
+            'msg' => '该用户已经填写过梦想',
+            'data' => array(
+                'userId' => $openId
+            )
+        );
 
         echo json_encode($back);
     }
