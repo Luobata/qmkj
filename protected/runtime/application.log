@@ -1725,3 +1725,36 @@ Stack trace:
 REQUEST_URI=/qmkj/index.php?r=dream/index/userId/oC8JsuCaWuiJgeT1un_JH_k_RGOo
 in F:\wamp\www\qmkj\protected\controllers\DreamController.php (76)
 in F:\wamp\www\qmkj\index.php (13)
+2017/05/19 18:32:16 [error] [php] Undefined variable: usreId (F:\wamp\www\qmkj\protected\controllers\DreamController.php:171)
+Stack trace:
+#0 F:\wamp\www\framework\web\CController.php(286): DreamController->runAction()
+#1 F:\wamp\www\framework\web\CController.php(265): DreamController->runActionWithFilters()
+#2 F:\wamp\www\framework\web\CWebApplication.php(282): DreamController->run()
+#3 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 F:\wamp\www\qmkj\index.php(13): CWebApplication->run()
+REQUEST_URI=/qmkj/index.php?r=dream/share/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (171)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/19 18:35:19 [error] [php] Trying to get property of non-object (F:\wamp\www\qmkj\protected\controllers\DreamController.php:86)
+Stack trace:
+#0 F:\wamp\www\framework\web\CController.php(286): DreamController->runAction()
+#1 F:\wamp\www\framework\web\CController.php(265): DreamController->runActionWithFilters()
+#2 F:\wamp\www\framework\web\CWebApplication.php(282): DreamController->run()
+#3 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 F:\wamp\www\qmkj\index.php(13): CWebApplication->run()
+REQUEST_URI=/qmkj/index.php?r=dream/index&userId=oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (86)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/19 18:35:28 [error] [php] Trying to get property of non-object (F:\wamp\www\qmkj\protected\controllers\DreamController.php:86)
+Stack trace:
+#0 F:\wamp\www\framework\web\CController.php(286): DreamController->runAction()
+#1 F:\wamp\www\framework\web\CController.php(265): DreamController->runActionWithFilters()
+#2 F:\wamp\www\framework\web\CWebApplication.php(282): DreamController->run()
+#3 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 F:\wamp\www\qmkj\index.php(13): CWebApplication->run()
+REQUEST_URI=/qmkj/index.php?r=dream/index&userId=oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (86)
+in F:\wamp\www\qmkj\index.php (13)

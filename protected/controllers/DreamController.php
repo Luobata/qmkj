@@ -62,6 +62,12 @@ class DreamController extends Controller {
         ));
         // var_dump($dreamItem2);
         // exit();
+        if ($dreamItem2 && !$userId) {
+            $this->redirect($this->createUrl("dream/index", array(
+                "userId" => urlencode($dreamItem2->userId),
+            )));
+            exit;
+        }
 
         if (!$dreamItem) {
             $this->renderPartial('dream', array(
@@ -168,10 +174,20 @@ class DreamController extends Controller {
         }
         $userId = isset($_GET['userId']) ? $_GET['userId'] : '';
 
+        if ($userInfo->openId == $userId) {
+            $this->redirect($this->createUrl("dream/index", array(
+                "userId" => urlencode($userId),
+            )));
+            exit;
+        }
+
         $dreamItem = Dream::model()->find('openId=:openId and userId=:userId', array(
             ':openId' => $_GET['userId'],
             ':userId' => $_GET['userId']
         ));
+
+
+
         $time = date("Y年m月d日", $dreamItem->startTime / 1000);
 
         $this->renderPartial('share', array(
