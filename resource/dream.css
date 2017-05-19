@@ -67,7 +67,7 @@ html,body {
     border-radius: 3.333333333rem;
     border: 0.083333333rem solid #eb6877;
     /*margin: 6.416666667rem auto 0;*/
-    position: fixed;
+    position: absolute;
     bottom: 7.333333333rem;
     margin: auto;
     left: 0;
