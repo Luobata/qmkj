@@ -14,6 +14,7 @@ html,body {
     overflow: hidden;
     background: url('../images/dream/background.png') no-repeat;
     background-size: 100% 100%;
+    background-size: 100% auto;
     text-align: center;
     position: absolute;
     z-index: 100;
@@ -37,7 +38,7 @@ html,body {
     height:  19.000000000rem;
     background: url('../images/dream/textarea.png') no-repeat;
     background-size: 100% 100%;
-    margin: 13.833333333rem auto 1.666666667rem;;
+    margin: 15.000000000rem auto 1.666666667rem;;
 }
 .textarea-wrap .text {
     background-color: transparent;
@@ -119,4 +120,17 @@ html,body {
     font-family: microsoft yahei;
     border-radius: 0.416666667rem;
     text-align: center;
+}
+.first .logo {
+    width: 9.208333333rem;
+    height: 5.666666667rem;
+    display: inline-block;
+    background: url('../images/dream/logo.png') no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 1.333333333rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.000000000rem;
+    margin: auto;
 }

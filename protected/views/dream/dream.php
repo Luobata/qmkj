@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -28,6 +27,7 @@
                 <textarea class="text" row="6"></textarea>
             </div>
             <div class="button">确认梦想</div>
+            <div class="logo"></div>
         </div>
         <div class="tip">
             <div class="tip-content">
