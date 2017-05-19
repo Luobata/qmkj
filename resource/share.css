@@ -26,7 +26,7 @@ html,body {
     min-height: 16.125000000rem;
     background: url('../images/dream/text-show.png') no-repeat;
     background-size: 100% 100%;
-    margin: 5.000000000rem auto 0;
+    margin: 1px auto 0;
     overflow: hidden;
     padding: 2.583333333rem 2.666666667rem 2.916666667rem;
     box-sizing: border-box;
@@ -76,7 +76,7 @@ html,body {
     font-weight: 600;
     border-radius: 3.333333333rem;
     border: 0.083333333rem solid #eb6877;
-    margin: 3.416666667rem auto 1.666666667rem;;
+    margin: 1.750000000rem auto 1.666666667rem;;
 }
 .top .person,
 .tops .person {
