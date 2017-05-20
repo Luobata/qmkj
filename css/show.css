@@ -330,7 +330,7 @@ html,body {
 .more .more-txt {
     color: #fff;
     font-size: 15px;
-    margin-right: 30px;
+    margin-right: 25px;
 }
 .more .more-button {
     background-color: #e4ecfa;
@@ -342,7 +342,7 @@ html,body {
     vertical-align: baseline;
     display: inline-block;
     border-radius: 4px;
-    margin-left: 30px;
+    /*margin-left: 20px;*/
 }
 .more-txt,
 .more-button {

@@ -42,7 +42,7 @@
                             天后你踏上当初的梦想之路了吗？
                         </div>
                     </div>
-                    <div class="date-end">以下是通过你分享记录下的ta的梦想<!-- <?php echo($today); ?> --></div>
+                    <div class="date-end">以下是ta通过你的分享记录下的的梦想<!-- <?php echo($today); ?> --></div>
                 </div>
                 <!-- <div class="rotate"></div> -->
             </div>
@@ -121,7 +121,7 @@
                 <div class="line"></div>
             </div>
             <div class="more">
-                <span class="more-txt">还有人也记录了TA的梦想</span>
+                <span class="more-txt">还有<?php echo($num); ?>人也记录了TA的梦想</span>
                 <a class="more-button" href="./index.php?r=dream/all/userId/<?php echo($userId);?>">点击查看</a>
             </div>
             

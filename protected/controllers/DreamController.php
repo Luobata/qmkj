@@ -84,6 +84,10 @@ class DreamController extends Controller {
             $leftTime = floor((time() - $dreamList[0]->startTime / 1000) / 3600 / 24);
             if ($leftTime < 0) $leftTime = 0;
             $today = date("Y年m月d日", time());
+            $sql = 'SELECT COUNT(*) FROM dream WHERE openId = userId';
+            $cnt = Yii::app()->db ->createCommand($sql);
+            $dataRow = $cnt -> query();
+            $num = $dataRow->read();
 
             $this->renderPartial('show', array(
                 "signPackage" => CJSON::encode($signPackage),
@@ -93,7 +97,8 @@ class DreamController extends Controller {
                 "dreamList" => $dreamList,
                 "startTime" => $startTime,
                 "leftTime" => $leftTime,
-                "today" => $today
+                "today" => $today,
+                "num" => (int)$num['COUNT(*)'] - 1
             ));
         }
     }
@@ -222,7 +227,7 @@ class DreamController extends Controller {
         $cnt = Yii::app()->db ->createCommand($sql);
         $dataRow = $cnt -> query();
         $num = $dataRow->read();
-        
+
         $this->renderPartial('all', array(
             "signPackage" => CJSON::encode($signPackage),
             "user" => CJSON::encode($userInfo),
