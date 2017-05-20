@@ -75,7 +75,8 @@ html,body {
     right: 0;*/
 }
 
-.tip {
+.tip,
+.confirm {
     width: 100%;
     min-height: 100%;
     position: fixed;
@@ -88,7 +89,13 @@ html,body {
     text-align: center;
     display: none;
 }
-.tip .tip-content {
+.confirm {
+    /*display:flex;*/
+    justify-content:center;
+    align-items:center;
+}
+.tip .tip-content,
+.confirm .tip-content {
     width: 19.583333333rem;
     height: 10.625000000rem;
     border-radius: 0.500000000rem;
@@ -101,13 +108,20 @@ html,body {
     right: 0;
     background-color: #fff;
 }
-.tip .tip-content .tip-text {
+.confirm .tip-content {
+    height: auto;
+    position: relative;
+    padding: 0 0.833333333rem;
+}
+.tip .tip-content .tip-text,
+.confirm .tip-content .tip-text {
     font-size: 1.500000000rem;
     color: #5a1b19;
     font-family: microsoft yahei;
     display: block;
     margin: 2.833333333rem 0 0 0;
 }
+.confirm .tip-content .ok-button,
 .tip .tip-content .ok-button {
     width: 14.583333333rem;
     height: 3.333333333rem;
@@ -120,6 +134,10 @@ html,body {
     font-family: microsoft yahei;
     border-radius: 0.416666667rem;
     text-align: center;
+}
+.confirm .tip-content .ok-button {
+    width: 7.083333333rem;
+    margin: 2.000000000rem 0.833333333rem;
 }
 .first .logo {
     width: 9.208333333rem;

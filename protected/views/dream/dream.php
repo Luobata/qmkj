@@ -29,10 +29,17 @@
             <div class="button">确认梦想</div>
             <div class="logo"></div>
         </div>
-        <div class="tip">
+        <div class="tip alert">
             <div class="tip-content">
                 <span class="tip-text">请填写你的梦想</span>
                 <span class="ok-button">确定</span>
+            </div>
+        </div>
+        <div class="confirm">
+            <div class="tip-content">
+                <span class="tip-text">这是一个慎重的决定！请确认你的梦想是否为：xxx，确认后不可修改</span>
+                <span class="ok-button submit">我已确认</span>
+                <span class="ok-button back">返回修改</span>
             </div>
         </div>
     </div>

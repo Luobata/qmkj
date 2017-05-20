@@ -8,6 +8,13 @@ define(function(require, exports, module) {
         dom.tip.fadeIn(100);
     };
 
+    function confirm(txt) {
+        var text = '这是一个慎重的决定！请确认你的梦想是否为：' + txt + '，确认后不可修改';
+        dom.confirm.css('display', 'flex');
+        dom.confirmC.text(text);
+        dom.confirm.fadeIn(100);
+    }
+
     function sendDream(txt) {
         var data = {
             openId: window.userInfo.openId,
@@ -40,9 +47,13 @@ define(function(require, exports, module) {
         dom.body = $('body');
         dom.textArea = dom.index.find('.text');
         dom.button = dom.index.find('.button');
-        dom.tip = dom.index.find('.tip');
-        dom.tipOk = dom.index.find('.ok-button');
-        dom.tipC = dom.index.find('.tip-text');
+        dom.tip = dom.index.find('.alert');
+        dom.tipOk = dom.tip.find('.ok-button');
+        dom.tipC = dom.tip.find('.tip-text');
+        dom.confirm = dom.index.find('.confirm');
+        dom.confirmC = dom.confirm.find('.tip-text')
+        dom.submit = dom.confirm.find('.submit');
+        dom.back = dom.confirm.find('.back');
     }
 
     function eventBind() {
@@ -51,15 +62,27 @@ define(function(require, exports, module) {
             if (!txt.trim().length) {
                 tip('请输入你的梦想');
                 return;
+            } else {
+                confirm(txt);
             }
 
-            sendDream(txt);
+            // sendDream(txt);
         });
         dom.tip.bind('tap', function (e) {
             var item = $(e.target);
             if (!item.hasClass('tip-text')) {
                 dom.tip.fadeOut(200);
             }
+        });
+        dom.back.bind('tap', function (e) {
+            // var item = $(e.target);
+            // if (!item.hasClass('tip-text')) {
+                dom.confirm.fadeOut(200);
+            // }
+        });
+        dom.submit.bind('tap', function (e) {
+            var txt = dom.textArea.val();
+            sendDream(txt);
         });
     }
     function shareInits (type) {
