@@ -2,7 +2,9 @@ define(function(require, exports, module) {
     var exports = {};
     var dom = {};
     var shareInit = require('./share-init.js');
+    var dataTpl = require('./data.tpl.js');
     var isAjax = false;
+    var end = false;
     var offset = 1;
 
     function domInit() {
@@ -23,11 +25,7 @@ define(function(require, exports, module) {
             data: data,
             dataType: 'json',
             success: function (data) {
-                if (data.code === 200) {
-                    console.log(data);
-                    fn();
-                } else {
-                }
+                fn(data);
             }
         });
     }
@@ -42,12 +40,19 @@ define(function(require, exports, module) {
             var scrollTop = dom.contents.scrollTop();
             var height = dom.inner.height() - dom.contents.height();
             var margin = height - scrollTop;
-            if (!isAjax && margin < 20) {
+            if (!isAjax && margin < 20 && !end) {
                 isAjax = true;
                 dom.loading.css('display', 'inline-block');
-                getData(function () {
+                getData(function (data) {
                     isAjax = false;
                     dom.loading.hide();
+                    if (data.code === 200) {
+                        if (data.data.length < 10) {
+                            end = true;
+                        }
+                        dom.inner.append(dataTpl(data.data));
+                        offset++;
+                    }
                 });
             }
         });

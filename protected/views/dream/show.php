@@ -42,7 +42,7 @@
                             天后你踏上当初的梦想之路了吗？
                         </div>
                     </div>
-                    <div class="date-end"><?php echo($today); ?></div>
+                    <div class="date-end">以下是通过你分享记录下的ta的梦想<!-- <?php echo($today); ?> --></div>
                 </div>
                 <!-- <div class="rotate"></div> -->
             </div>

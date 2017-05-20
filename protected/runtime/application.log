@@ -2112,3 +2112,62 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/qmkj/index.php?r=dream/List&offset=1
 ---
+2017/05/20 20:36:57 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY000]: General error: 1111 Invalid use of group function. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE max(rank) LIMIT 1.
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (241)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 20:36:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1111 Invalid use of group function. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE max(rank) LIMIT 1' in F:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\www\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 F:\wamp\www\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryRow()
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1461): CActiveRecord->query(Object(CDbCriteria))
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(241): CActiveRecord->find('max(rank)')
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAdd()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('add')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/add')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/add
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 20:42:37 [error] [php] Object of class Dream could not be converted to int (F:\wamp\www\qmkj\protected\controllers\DreamController.php:252)
+Stack trace:
+#0 F:\wamp\www\framework\web\CController.php(286): DreamController->runAction()
+#1 F:\wamp\www\framework\web\CController.php(265): DreamController->runActionWithFilters()
+#2 F:\wamp\www\framework\web\CWebApplication.php(282): DreamController->run()
+#3 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 F:\wamp\www\qmkj\index.php(13): CWebApplication->run()
+REQUEST_URI=/qmkj/index.php?r=dream/add
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (252)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 20:58:31 [error] [php] Undefined index: count(*) (F:\wamp\www\qmkj\protected\controllers\DreamController.php:233)
+Stack trace:
+#0 F:\wamp\www\framework\web\CController.php(286): DreamController->runAction()
+#1 F:\wamp\www\framework\web\CController.php(265): DreamController->runActionWithFilters()
+#2 F:\wamp\www\framework\web\CWebApplication.php(282): DreamController->run()
+#3 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 F:\wamp\www\qmkj\index.php(13): CWebApplication->run()
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (233)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 20:58:59 [error] [php] Array to string conversion (F:\wamp\www\qmkj\protected\views\dream\all.php:26)
+Stack trace:
+#0 F:\wamp\www\framework\web\CController.php(869): DreamController->renderFile()
+#1 F:\wamp\www\qmkj\protected\controllers\DreamController.php(232): DreamController->renderPartial()
+#2 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#3 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 F:\wamp\www\framework\web\CController.php(286): DreamController->runAction()
+#5 F:\wamp\www\framework\web\CController.php(265): DreamController->runActionWithFilters()
+#6 F:\wamp\www\framework\web\CWebApplication.php(282): DreamController->run()
+#7 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#9 F:\wamp\www\qmkj\index.php(13): CWebApplication->run()
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+in F:\wamp\www\qmkj\protected\views\dream\all.php (26)
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (232)
+in F:\wamp\www\qmkj\index.php (13)

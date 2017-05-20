@@ -84,12 +84,11 @@ class DreamController extends Controller {
             $leftTime = floor((time() - $dreamList[0]->startTime / 1000) / 3600 / 24);
             if ($leftTime < 0) $leftTime = 0;
             $today = date("Y年m月d日", time());
-            $rank = $dreamForm->loadUserByOpenId($dreamList[0]->openId, true);
 
             $this->renderPartial('show', array(
                 "signPackage" => CJSON::encode($signPackage),
                 "user" => CJSON::encode($userInfo),
-                "rank" => $rank->id,
+                "rank" => $dreamItem2->rank,
                 "userId" => $userInfo->openId,
                 "dreamList" => $dreamList,
                 "startTime" => $startTime,
@@ -219,13 +218,17 @@ class DreamController extends Controller {
             ':limit' => 10,
             ':offset' => 0
         ));
-        // var_dump($dreamList);
-
+        $sql = 'SELECT COUNT(*) FROM dream WHERE openId = userId';
+        $cnt = Yii::app()->db ->createCommand($sql);
+        $dataRow = $cnt -> query();
+        $num = $dataRow->read();
+        
         $this->renderPartial('all', array(
             "signPackage" => CJSON::encode($signPackage),
             "user" => CJSON::encode($userInfo),
             "userId" => $userId,
-            "dreamList" => $dreamList
+            "dreamList" => $dreamList,
+            "num" => (int)$num['COUNT(*)']
         ));
     }
 
@@ -237,7 +240,13 @@ class DreamController extends Controller {
             ':openId' => $openId,
             ':userId' => $openId
         ));
-        if (!$dreamItem2) {
+        if (!$dreamItem2) { // 自己
+            $sql = 'select max(rank) from dream';
+            $cnt = Yii::app()->db ->createCommand($sql);
+            $dataRow = $cnt -> query();
+            $rank = $dataRow->read();
+            // var_dump((int)$rank['max(rank)'] + 1);
+            // exit();
             $dreamItem2 = new Dream;
             $dreamItem2->userId = $openId;
             $dreamItem2->openId = $openId;
@@ -246,6 +255,7 @@ class DreamController extends Controller {
             $dreamItem2->dream = $_POST['dream'];
             $dreamItem2->startTime = $_POST['startTime'];
             $dreamItem2->sex = $_POST['sex'];
+            $dreamItem2->rank = (int)$rank['max(rank)'] + 1;
             $dreamItem2->save();
         }
         $dreamItem = Dream::model()->find('openId=:openId and userId=:userId', array(
@@ -283,7 +293,7 @@ class DreamController extends Controller {
     public function actionList() {
         $dreamList = Dream::model()->findAll('openId = userId LIMIT :limit OFFSET :offset', array(
             ':limit' => 10,
-            ':offset' => (int)$_GET['offset']
+            ':offset' => (int)$_GET['offset'] * 10
         ));
         $back = array(
             'code' => 200,

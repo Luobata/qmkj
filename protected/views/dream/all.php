@@ -7,8 +7,8 @@
 <title>不忘初心•梦想集结号</title>
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./js/lib/reset.css" />
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/global.css" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="./css/all.css?v=201608337" />
-<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/all.css?v=201608337" /> -->
+<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/all.css?v=201608337" /> -->
+<link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/all.css?v=201608337" />
 </head>
 <body>
 <script type="text/javascript">
@@ -23,48 +23,10 @@
     <div id="index">
         <div class="first">
             <div class="header">
-                人在这里写下了他们的梦想
+                <?php echo($num); ?>人在这里写下了他们的梦想
             </div>
             <div class="contents">
                 <div class="step-wrap">
-                    <?php foreach ($dreamList as $i) { ?>
-                    <div class="step-line-wrap">
-                        <div class="step">
-                            <div class="img-wrap">
-                                <img src="<?php echo($i->headimgurl); ?>">
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <span class="title-name"><?php echo($i->nickname); ?></span>
-                                </div>
-                                <div class="dream-txt">
-                                    <span class="border-top"></span>
-                                    <span class="txt"><?php echo($i->dream); ?></span>
-                                    <span class="border-bottom"></span>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
-                    <?php } ?>
-                    <?php foreach ($dreamList as $i) { ?>
-                    <div class="step-line-wrap">
-                        <div class="step">
-                            <div class="img-wrap">
-                                <img src="<?php echo($i->headimgurl); ?>">
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <span class="title-name"><?php echo($i->nickname); ?></span>
-                                </div>
-                                <div class="dream-txt">
-                                    <span class="border-top"></span>
-                                    <span class="txt"><?php echo($i->dream); ?></span>
-                                    <span class="border-bottom"></span>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
-                    <?php } ?>
                     <?php foreach ($dreamList as $i) { ?>
                     <div class="step-line-wrap">
                         <div class="step">

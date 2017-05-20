@@ -28,13 +28,17 @@ html,body {
     font-size: 1.500000000rem;
     color: #fff;
 }
-.first .content {
+.first .contents {
     width: 25.000000000rem;
     height: 23.958333333rem;
     margin: 1.666666667rem auto 0;
     border: 0.083333333rem solid #e78a96;
     border-radius: 0.416666667rem;
     background: rgba(245, 245, 246, 0.6);
+    padding: 1.916666667rem 0.833333333rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .first .button {
     width: 23.333333333rem;
@@ -56,4 +60,128 @@ html,body {
     background: url('../images/dream/logo.png') no-repeat;
     background-size: 100% 100%;
     margin-bottom: 1.333333333rem;
+}
+
+.contents .step-wrap {
+    font-size: 0;
+    text-align: left;
+}
+
+.step-line-wrap {
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 2.000000000rem;
+}
+.step {
+    /*width: 50%;*/
+    text-align: left;
+    font-size: 0;
+}
+.step-line-wrap:nth-child(even) .step .img-wrap {
+    margin-left: 1.250000000rem;
+}
+.step-wrap .line-top {
+    width: 0.083333333rem;
+    height: 2.000000000rem;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #eb6877;
+}
+.step .img-wrap {
+    width: 2.916666667rem;
+    height: 2.916666667rem;
+    line-height: 2.916666667rem;
+    border-radius: 2.916666667rem;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    font-size: 0;
+    text-align: center;
+    background-color: #ff7867;
+    position: relative;
+}
+.step .img-wrap img {
+    width: 2.750000000rem;
+    height: 2.750000000rem;
+    border-radius: 2.750000000rem;
+    vertical-align: middle;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.step .content {
+    margin-left: 0.750000000rem;
+    display: inline-block;
+    vertical-align: top;
+    /*position: absolute;*/
+}
+.step .content .title {
+    white-space: nowrap;
+}
+.step .content .title-name {
+    font-size: 1.000000000rem;
+    color: #ff7867;
+}
+.step .content .title-heart {
+    width: 1.333333333rem;
+    height: 1.250000000rem;
+    display: inline-block;
+    background: url('../images/dream/heart.png') no-repeat;
+    background-size: 100% 100%;
+    vertical-align: top;
+    margin-left: 0.500000000rem;
+}
+.step .content .dream-txt {
+    position: relative;
+    margin-top: 0.416666667rem;
+    padding: 0.250000000rem;
+    max-width: 5.833333333rem;
+}
+.step .content .dream-txt .txt {
+    font-size: 1.000000000rem;
+    color: #a3a3a3;
+    transform: scale(0.83333);
+    display: inline-block;
+    max-width: 7.333333333rem;
+    line-height: 1.250000000rem;
+    word-wrap:break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 2.500000000rem;
+}
+.step .content .dream-txt .border-top {
+    width: 0.666666667rem;
+    height: 0.708333333rem;
+    display: inline-block;
+    position: absolute;
+    background: url('../images/dream/border-left.png') no-repeat;
+    background-size: 100% 100%;
+    top: 0;
+    left: 0;
+}
+.step .content .dream-txt .border-bottom {
+    width: 0.666666667rem;
+    height: 0.708333333rem;
+    display: inline-block;
+    position: absolute;
+    background: url('../images/dream/border-right.png') no-repeat;
+    background-size: 100% 100%;
+    bottom: 0;
+    right: 0; 
+}
+.loading {
+    width: 1.333333333rem;
+    height: 1.333333333rem;
+    display: inline-block;
+    background: url('../images/dream/loading.gif') no-repeat;
+    background-size: 100% 100%;
+    margin-left: -0.833333333rem;
+    display: none;
 }

@@ -47,7 +47,7 @@ html,body {
     color: #656565;
     font-size: 1.250000000rem;
     font-family: microsoft yahei;
-    font-weight: 700;
+    /*font-weight: 700;*/
     height: 12.500000000rem;
     text-indent: 2.500000000rem;
     width: 100%;
@@ -152,5 +152,8 @@ html,body {
     right: 0;
     bottom: 1.000000000rem;
     margin: auto;*/
+}
+::-webkit-textarea-placeholder {
+    color: #a5a5a5;
 }
 
