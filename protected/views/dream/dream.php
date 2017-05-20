@@ -24,7 +24,7 @@
             <!-- <div class="header">在此刻认证记录我的梦想，写下后不再更改，并从此为它拼搏！
             </div> -->
             <div class="textarea-wrap">
-                <textarea class="text" row="6"></textarea>
+                <textarea class="text" row="6" maxlength="20" placeholder="此处输入你的梦想，您可输入20字。"></textarea>
             </div>
             <div class="button">确认梦想</div>
             <div class="logo"></div>

@@ -13,6 +13,7 @@ define(function(require, exports, module) {
         dom.button = dom.index.find('.button');
         dom.line = dom.index.find('.line');
         dom.logo = dom.index.find('.logo');
+        dom.more = dom.index.find('more');
 
         dom.button.bind('tap', function () {
             share.init(dom.index);
@@ -31,7 +32,8 @@ define(function(require, exports, module) {
             parseFloat(dom.button.css('margin-top'));
         var logoHeight = dom.logo.height() +
             parseFloat(dom.logo.css('margin-bottom'));
-        var lineHeight = bodyHeight - (headerHeight + stepHeight + buttonHeight + logoHeight) - 88;
+        var moreHeight = dom.more.height();
+        var lineHeight = bodyHeight - (headerHeight + stepHeight + buttonHeight + moreHeight + logoHeight) - 66;
         dom.line.css('height', lineHeight > 90 ? lineHeight + 'px' : '100px');
     }
 

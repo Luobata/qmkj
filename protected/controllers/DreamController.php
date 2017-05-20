@@ -199,6 +199,36 @@ class DreamController extends Controller {
         ));
     }
 
+    public function actionAll() {
+        $sdk = new JSSDK($this->appId, $this->secret);
+        $signPackage = $sdk->getSignPackage();
+        $dreamForm = new DreamForm();
+        $userInfo = $dreamForm->checkLogin();
+        $returnUrl = Yii::app()->request->url;
+
+        if ($userInfo == false) {
+            $this->redirect($this->createUrl("dream/login", array(
+                "returnUrl" => urlencode($returnUrl),
+            )));
+            exit;
+        }
+        $userId = isset($_GET['userId']) ? $_GET['userId'] : '';
+
+        // $dreamList = Dream::model()->limt(2)->findAll('openId = userId');
+        $dreamList = Dream::model()->findAll('openId = userId LIMIT :limit OFFSET :offset', array(
+            ':limit' => 10,
+            ':offset' => 0
+        ));
+        // var_dump($dreamList);
+
+        $this->renderPartial('all', array(
+            "signPackage" => CJSON::encode($signPackage),
+            "user" => CJSON::encode($userInfo),
+            "userId" => $userId,
+            "dreamList" => $dreamList
+        ));
+    }
+
     public function actionAdd() {
         $openId = $_POST['openId'];
         $userId = $_POST['userId'];
@@ -247,6 +277,19 @@ class DreamController extends Controller {
             )
         );
 
+        echo json_encode($back);
+    }
+
+    public function actionList() {
+        $dreamList = Dream::model()->findAll('openId = userId LIMIT :limit OFFSET :offset', array(
+            ':limit' => 10,
+            ':offset' => (int)$_GET['offset']
+        ));
+        $back = array(
+            'code' => 200,
+            'msg' => '',
+            'data' => $dreamList
+        );
         echo json_encode($back);
     }
 }

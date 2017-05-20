@@ -7,7 +7,8 @@ var cssList = [
     '../css/index.css',
     '../css/dream.css',
     '../css/show.css',
-    '../css/share.css'
+    '../css/share.css',
+    '../css/all.css'
 ];
 var css = '../css/index.css';
 

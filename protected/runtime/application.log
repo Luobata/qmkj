@@ -1866,3 +1866,249 @@ Stack trace:
 REQUEST_URI=/qmkj/index.php?r=dream
 in F:\wamp\www\qmkj\protected\controllers\DreamController.php (82)
 in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 17:15:57 [error] [php] Undefined variable: dreamItem (F:\wamp\www\qmkj\protected\views\dream\share.php:28)
+Stack trace:
+#0 F:\wamp\www\framework\web\CController.php(869): DreamController->renderFile()
+#1 F:\wamp\www\qmkj\protected\controllers\DreamController.php(220): DreamController->renderPartial()
+#2 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#3 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 F:\wamp\www\framework\web\CController.php(286): DreamController->runAction()
+#5 F:\wamp\www\framework\web\CController.php(265): DreamController->runActionWithFilters()
+#6 F:\wamp\www\framework\web\CWebApplication.php(282): DreamController->run()
+#7 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#9 F:\wamp\www\qmkj\index.php(13): CWebApplication->run()
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+in F:\wamp\www\qmkj\protected\views\dream\share.php (28)
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (220)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 17:31:17 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.0" is not defined.' in F:\wamp\www\framework\base\CComponent.php:173
+Stack trace:
+#0 F:\wamp\www\framework\db\schema\CDbCriteria.php(160): CComponent->__set('0', 'openId = userId')
+#1 F:\wamp\www\framework\db\schema\CDbCommandBuilder.php(588): CDbCriteria->__construct(Array)
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1474): CDbCommandBuilder->createCriteria(Array, Array)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(220): CActiveRecord->findAll(Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('all')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/all/userI...')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 17:34:42 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.0" is not defined.' in F:\wamp\www\framework\base\CComponent.php:173
+Stack trace:
+#0 F:\wamp\www\framework\db\schema\CDbCriteria.php(160): CComponent->__set('0', 'openId = userId')
+#1 F:\wamp\www\framework\db\schema\CDbCommandBuilder.php(588): CDbCriteria->__construct(Array)
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1474): CDbCommandBuilder->createCriteria(Array, Array)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(221): CActiveRecord->findAll(Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('all')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/all/userI...')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 17:35:43 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.0" is not defined.' in F:\wamp\www\framework\base\CComponent.php:173
+Stack trace:
+#0 F:\wamp\www\framework\db\schema\CDbCriteria.php(160): CComponent->__set('0', 'openId = userId')
+#1 F:\wamp\www\framework\db\schema\CDbCommandBuilder.php(588): CDbCriteria->__construct(Array)
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1474): CDbCommandBuilder->createCriteria(Array, Array)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(221): CActiveRecord->findAll(Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('all')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/all/userI...')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 17:35:58 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.0" is not defined.' in F:\wamp\www\framework\base\CComponent.php:173
+Stack trace:
+#0 F:\wamp\www\framework\db\schema\CDbCriteria.php(160): CComponent->__set('0', 'openId = userId')
+#1 F:\wamp\www\framework\db\schema\CDbCommandBuilder.php(588): CDbCriteria->__construct(Array)
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1474): CDbCommandBuilder->createCriteria(Array, Array)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(221): CActiveRecord->findAll(Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('all')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/all/userI...')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 17:37:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId limit=:limit.
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (220)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 17:37:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId limit=:limit' in F:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 F:\wamp\www\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(220): CActiveRecord->findAll('openId = userId...', Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('all')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/all/userI...')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 17:38:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':limit' at line 1. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId limit:limit.
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (220)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 17:38:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':limit' at line 1. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId limit:limit' in F:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 F:\wamp\www\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(220): CActiveRecord->findAll('openId = userId...', Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('all')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/all/userI...')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 17:38:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId limit :limit.
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (220)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 17:38:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId limit :limit' in F:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 F:\wamp\www\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(220): CActiveRecord->findAll('openId = userId...', Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('all')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/all/userI...')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 17:39:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId LIMIT :limit.
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (220)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 17:39:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId LIMIT :limit' in F:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 F:\wamp\www\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(220): CActiveRecord->findAll('openId = userId...', Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('all')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/all/userI...')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 17:40:58 [error] [exception.CException] exception 'CException' with message 'Dream and its behaviors do not have a method or closure named "limt".' in F:\wamp\www\framework\base\CComponent.php:266
+Stack trace:
+#0 F:\wamp\www\framework\db\ar\CActiveRecord.php(227): CComponent->__call('limt', Array)
+#1 F:\wamp\www\qmkj\protected\controllers\DreamController.php(217): CActiveRecord->__call('limt', Array)
+#2 F:\wamp\www\qmkj\protected\controllers\DreamController.php(217): Dream->limt(2)
+#3 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#4 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('all')
+#8 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/all/userI...')
+#9 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 18:26:41 [error] [php] Undefined variable: dreamList (F:\wamp\www\qmkj\protected\views\dream\all.php:30)
+Stack trace:
+#0 F:\wamp\www\framework\web\CController.php(869): DreamController->renderFile()
+#1 F:\wamp\www\qmkj\protected\controllers\DreamController.php(228): DreamController->renderPartial()
+#2 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionAll()
+#3 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 F:\wamp\www\framework\web\CController.php(286): DreamController->runAction()
+#5 F:\wamp\www\framework\web\CController.php(265): DreamController->runActionWithFilters()
+#6 F:\wamp\www\framework\web\CWebApplication.php(282): DreamController->run()
+#7 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#9 F:\wamp\www\qmkj\index.php(13): CWebApplication->run()
+REQUEST_URI=/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+in F:\wamp\www\qmkj\protected\views\dream\all.php (30)
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (228)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 19:24:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''1'' at line 1. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId LIMIT :limit OFFSET :offset.
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (287)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 19:24:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''1'' at line 1. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId LIMIT :limit OFFSET :offset' in F:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 F:\wamp\www\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(287): CActiveRecord->findAll('openId = userId...', Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionList()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('List')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/List')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/List&offset=1
+HTTP_REFERER=http://h5.ruyiso.com/qmkj/index.php?r=dream/all/userId/oC8JsuNcJH7Rs-NgpxUePuHfMpnE
+---
+2017/05/20 19:26:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''1'' at line 1. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId LIMIT :limit OFFSET :offset.
+in F:\wamp\www\qmkj\protected\controllers\DreamController.php (289)
+in F:\wamp\www\qmkj\index.php (13)
+2017/05/20 19:26:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''1'' at line 1. The SQL statement executed was: SELECT * FROM `dream` `t` WHERE openId = userId LIMIT :limit OFFSET :offset' in F:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 F:\wamp\www\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 F:\wamp\www\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 F:\wamp\www\qmkj\protected\controllers\DreamController.php(289): CActiveRecord->findAll('openId = userId...', Array)
+#4 F:\wamp\www\framework\web\actions\CInlineAction.php(49): DreamController->actionList()
+#5 F:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 F:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 F:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\wamp\www\framework\web\CWebApplication.php(282): CController->run('List')
+#9 F:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('dream/List')
+#10 F:\wamp\www\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\wamp\www\qmkj\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/qmkj/index.php?r=dream/List&offset=1
+---

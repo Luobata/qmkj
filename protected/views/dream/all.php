@@ -7,8 +7,8 @@
 <title>不忘初心•梦想集结号</title>
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./js/lib/reset.css" />
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/global.css" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="./css/show.css?v=201608337" />
-<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/show.css?v=201608337" /> -->
+<link rel="stylesheet" type="text/css" charset="utf-8" href="./css/all.css?v=201608337" />
+<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/all.css?v=201608337" /> -->
 </head>
 <body>
 <script type="text/javascript">
@@ -23,90 +23,57 @@
     <div id="index">
         <div class="first">
             <div class="header">
-                <div class="rotate-logo">
-                </div>
-                <!-- <div class="img-wrap">
-                    <img src="<?php echo($dreamList[0]->headimgurl); ?>">
-                </div> -->
-                <div class="con-wrap">
-                    <div class="name"><?php echo($dreamList[0]->nickname); ?>
-                        <span class="rank">第<?php echo($rank); ?>位写下初心的人</span>
-                    </div>
-                    <div class="detail">
-                        <div class="text">
-                            <span class="date"><?php echo($startTime); ?></span>
-                            写下了自己最初的梦想
-                        </div>
-                        <div class="text">
-                            <span class="day-num"><?php echo($leftTime); ?></span>
-                            天后你踏上当初的梦想之路了吗？
-                        </div>
-                    </div>
-                    <div class="date-end"><?php echo($today); ?></div>
-                </div>
-                <!-- <div class="rotate"></div> -->
+                人在这里写下了他们的梦想
             </div>
-            <div class="line-wrap">
+            <div class="contents">
                 <div class="step-wrap">
-<!--                     <div class="step-line-wrap">
-                        <div class="line-top"></div>
-                        <div class="step">
-                            <div class="circle-wrap">
-                                <span class="circle"></span>
-                            </div>
-                            <div class="img-wrap">
-                                <img src="./images/dream/head-url.png">
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <span class="title-name">萌萌小甜心</span>
-                                    <span class="title-heart"></span>
-                                </div>
-                                <div class="dream-txt">
-                                    <span class="border-top"></span>
-                                    <span class="txt">曾梦仗剑走天涯,去看看世界的繁华</span>
-                                    <span class="border-bottom"></span>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
-                    <div class="step-line-wrap">
-                        <div class="line-top"></div>
-                        <div class="step">
-                            <div class="circle-wrap">
-                                <span class="circle"></span>
-                            </div>
-                            <div class="img-wrap">
-                                <img src="./images/dream/head-url.png">
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <span class="title-name">萌萌小甜心</span>
-                                    <span class="title-heart"></span>
-                                </div>
-                                <div class="dream-txt">
-                                    <span class="border-top"></span>
-                                    <span class="txt">曾梦仗剑走天涯,去看看世界的繁华</span>
-                                    <span class="border-bottom"></span>
-                                </div>
-                            </div>
-                        </div>  
-                    </div> -->
-                    
                     <?php foreach ($dreamList as $i) { ?>
                     <div class="step-line-wrap">
-                        <div class="line-top"></div>
                         <div class="step">
-                            <div class="circle-wrap">
-                                <span class="circle"></span>
-                            </div>
                             <div class="img-wrap">
                                 <img src="<?php echo($i->headimgurl); ?>">
                             </div>
                             <div class="content">
                                 <div class="title">
                                     <span class="title-name"><?php echo($i->nickname); ?></span>
-                                    <span class="title-heart"></span>
+                                </div>
+                                <div class="dream-txt">
+                                    <span class="border-top"></span>
+                                    <span class="txt"><?php echo($i->dream); ?></span>
+                                    <span class="border-bottom"></span>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <?php } ?>
+                    <?php foreach ($dreamList as $i) { ?>
+                    <div class="step-line-wrap">
+                        <div class="step">
+                            <div class="img-wrap">
+                                <img src="<?php echo($i->headimgurl); ?>">
+                            </div>
+                            <div class="content">
+                                <div class="title">
+                                    <span class="title-name"><?php echo($i->nickname); ?></span>
+                                </div>
+                                <div class="dream-txt">
+                                    <span class="border-top"></span>
+                                    <span class="txt"><?php echo($i->dream); ?></span>
+                                    <span class="border-bottom"></span>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <?php } ?>
+                    <?php foreach ($dreamList as $i) { ?>
+                    <div class="step-line-wrap">
+                        <div class="step">
+                            <div class="img-wrap">
+                                <img src="<?php echo($i->headimgurl); ?>">
+                            </div>
+                            <div class="content">
+                                <div class="title">
+                                    <span class="title-name"><?php echo($i->nickname); ?></span>
                                 </div>
                                 <div class="dream-txt">
                                     <span class="border-top"></span>
@@ -118,14 +85,9 @@
                     </div>
                     <?php } ?>
                 </div>
-                <div class="line"></div>
+                <div class="loading"></div>
             </div>
-            <div class="more">
-                <span class="more-txt">还有人也记录了TA的梦想</span>
-                <a class="more-button" href="./index.php?r=dream/all/userId/<?php echo($userId);?>">点击查看</a>
-            </div>
-            
-            <div class="button">邀请朋友填写</div>
+            <div class="button">返回我的梦想页</div>
             <div class="logo"></div>
         </div>
     </div>
@@ -142,8 +104,11 @@
 <script type="text/javascript">
     var signStr = '<?php echo($signPackage); ?>';
     var sign = JSON.parse(signStr);
-    var dreamList = '<?php ($dreamList); ?>';
+    var userInfo = '<?php echo($user); ?>';
+    var sign = JSON.parse(signStr);
+    window.userInfo = JSON.parse(userInfo);
     window.userId = '<?php echo($userId)?>';
+
     wx.config({
         debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         appId: sign.appId, // 必填，公众号的唯一标识
@@ -160,10 +125,10 @@
             debug: 2
         });
         seajs.use([
-            './js/dream/show.js?v=' + version
+            './js/dream/all.js?v=' + version
         ]);
     });
 </script>
-<!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261805651'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261805651%26online%3D1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261805651'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261805651%26online%3D1' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

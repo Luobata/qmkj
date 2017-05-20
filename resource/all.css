@@ -1,0 +1,59 @@
+html,body {
+    height: 100%;
+    overflow: hidden;
+}
+#index {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    font-family: microsoft yahei;
+}
+#index .first {
+    width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
+    background: url('../images/dream/background-all.jpg') no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+    /*display: none;*/
+}
+.first .header {
+    width:  100%;
+    height: 5.666666667rem;
+    line-height: 5.666666667rem;
+    text-align: center;
+    font-size: 1.500000000rem;
+    color: #fff;
+}
+.first .content {
+    width: 25.000000000rem;
+    height: 23.958333333rem;
+    margin: 1.666666667rem auto 0;
+    border: 0.083333333rem solid #e78a96;
+    border-radius: 0.416666667rem;
+    background: rgba(245, 245, 246, 0.6);
+}
+.first .button {
+    width: 23.333333333rem;
+    height: 2.833333333rem;
+    line-height: 2.750000000rem;
+    background-color: #ffffff;
+    color: #eb6877;
+    font-size: 1.500000000rem;
+    font-family: microsoft yahei;
+    font-weight: 600;
+    border-radius: 3.333333333rem;
+    border: 0.083333333rem solid #eb6877;
+    margin: 1.833333333rem auto 1.333333333rem;
+}
+.first .logo {
+    width: 9.208333333rem;
+    height: 5.666666667rem;
+    display: inline-block;
+    background: url('../images/dream/logo.png') no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 1.333333333rem;
+}

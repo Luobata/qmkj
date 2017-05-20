@@ -1,0 +1,186 @@
+html,body {
+    height: 100%;
+    overflow: hidden;
+}
+#index {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    font-family: microsoft yahei;
+}
+#index .first {
+    width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
+    background: url('../images/dream/background-all.jpg') no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+    /*display: none;*/
+}
+.first .header {
+    width:  100%;
+    height: 68px;
+    line-height: 68px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+}
+.first .contents {
+    width: 300px;
+    height: 287.5px;
+    margin: 20px auto 0;
+    border: 1px solid #e78a96;
+    border-radius: 5px;
+    background: rgba(245, 245, 246, 0.6);
+    padding: 23px 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.first .button {
+    width: 280px;
+    height: 34px;
+    line-height: 33px;
+    background-color: #ffffff;
+    color: #eb6877;
+    font-size: 18px;
+    font-family: microsoft yahei;
+    font-weight: 600;
+    border-radius: 40px;
+    border: 1px solid #eb6877;
+    margin: 22px auto 16px;
+}
+.first .logo {
+    width: 110.5px;
+    height: 68px;
+    display: inline-block;
+    background: url('../images/dream/logo.png') no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 16px;
+}
+
+.contents .step-wrap {
+    font-size: 0;
+}
+
+.step-line-wrap {
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 24px;
+}
+.step {
+    /*width: 50%;*/
+    text-align: left;
+    font-size: 0;
+}
+.step-line-wrap:nth-child(even) .step .img-wrap {
+    margin-left: 15px;
+}
+.step-wrap .line-top {
+    width: 1px;
+    height: 24px;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #eb6877;
+}
+.step .img-wrap {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    font-size: 0;
+    text-align: center;
+    background-color: #ff7867;
+    position: relative;
+}
+.step .img-wrap img {
+    width: 33px;
+    height: 33px;
+    border-radius: 33px;
+    vertical-align: middle;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.step .content {
+    margin-left: 9px;
+    display: inline-block;
+    vertical-align: top;
+    /*position: absolute;*/
+}
+.step .content .title {
+    white-space: nowrap;
+}
+.step .content .title-name {
+    font-size: 12px;
+    color: #ff7867;
+}
+.step .content .title-heart {
+    width: 16px;
+    height: 15px;
+    display: inline-block;
+    background: url('../images/dream/heart.png') no-repeat;
+    background-size: 100% 100%;
+    vertical-align: top;
+    margin-left: 6px;
+}
+.step .content .dream-txt {
+    position: relative;
+    margin-top: 5px;
+    padding: 3px;
+    max-width: 70px;
+}
+.step .content .dream-txt .txt {
+    font-size: 12px;
+    color: #a3a3a3;
+    transform: scale(0.83333);
+    display: inline-block;
+    max-width: 88px;
+    line-height: 15px;
+    word-wrap:break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 30px;
+}
+.step .content .dream-txt .border-top {
+    width: 8px;
+    height: 8.5px;
+    display: inline-block;
+    position: absolute;
+    background: url('../images/dream/border-left.png') no-repeat;
+    background-size: 100% 100%;
+    top: 0;
+    left: 0;
+}
+.step .content .dream-txt .border-bottom {
+    width: 8px;
+    height: 8.5px;
+    display: inline-block;
+    position: absolute;
+    background: url('../images/dream/border-right.png') no-repeat;
+    background-size: 100% 100%;
+    bottom: 0;
+    right: 0; 
+}
+.loading {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: url('../images/dream/loading.gif') no-repeat;
+    background-size: 100% 100%;
+    margin-left: -10px;
+    display: none;
+}
