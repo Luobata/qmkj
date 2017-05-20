@@ -7,8 +7,8 @@
 <title>不忘初心•梦想集结号</title>
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./js/lib/reset.css" />
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/global.css" />
-<link rel="stylesheet" type="text/css" charset="utf-8" href="./css/show.css?v=201608337" />
-<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/show.css?v=201608337" /> -->
+<!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/show.css?v=201608337" /> -->
+<link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/show.css?v=201608337" />
 </head>
 <body>
 <script type="text/javascript">
