@@ -9,6 +9,15 @@
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/global.css" />
 <!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/share.css?v=201608337" /> -->
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/share.css?v=201608337" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4101765acbaca6291e5cfcbeaa89f81a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <body>
 <script type="text/javascript">
