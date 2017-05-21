@@ -178,6 +178,7 @@ class DreamController extends Controller {
         }
         $userId = isset($_GET['userId']) ? $_GET['userId'] : '';
 
+
         if ($userInfo->openId == $userId) {
             $this->redirect($this->createUrl("dream/index", array(
                 "userId" => urlencode($userId),
@@ -189,6 +190,13 @@ class DreamController extends Controller {
             ':openId' => $_GET['userId'],
             ':userId' => $_GET['userId']
         ));
+        $dreamItem2 = Dream::model()->find('openId=:openId and userId=:userId', array(
+            ':openId' => $userInfo->openId,
+            ':userId' => $userInfo->openId
+        ));
+        if ($dreamItem2) {
+            $userId = $dreamItem2->userId;
+        }
 
 
 

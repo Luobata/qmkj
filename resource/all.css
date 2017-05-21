@@ -152,9 +152,10 @@ html,body {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    max-height: 2.500000000rem;
+    max-height: 5.000000000rem;
+    margin: -0.166666667rem; 
 }
 .step .content .dream-txt .border-top {
     width: 0.666666667rem;
