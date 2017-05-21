@@ -6,6 +6,7 @@ define(function(require, exports, module) {
         var link = url;
         var success = function () {
             //log('Share');
+            _hmt.push(['_trackEvent', 'share', 'share']);
         };
         wx.onMenuShareTimeline({
             title: title,
