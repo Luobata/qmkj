@@ -227,7 +227,7 @@ class DreamController extends Controller {
         $userId = isset($_GET['userId']) ? $_GET['userId'] : '';
 
         // $dreamList = Dream::model()->limt(2)->findAll('openId = userId');
-        $dreamList = Dream::model()->findAll('openId = userId LIMIT :limit OFFSET :offset', array(
+        $dreamList = Dream::model()->findAll('openId = userId  order by startTime DESC LIMIT :limit OFFSET :offset', array(
             ':limit' => 10,
             ':offset' => 0
         ));
@@ -304,7 +304,7 @@ class DreamController extends Controller {
     }
 
     public function actionList() {
-        $dreamList = Dream::model()->findAll('openId = userId LIMIT :limit OFFSET :offset', array(
+        $dreamList = Dream::model()->findAll('openId = userId  order by startTime DESC LIMIT :limit OFFSET :offset', array(
             ':limit' => 10,
             ':offset' => (int)$_GET['offset'] * 10
         ));
