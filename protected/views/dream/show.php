@@ -9,6 +9,15 @@
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/global.css" />
 <!-- <link rel="stylesheet" type="text/css" charset="utf-8" href="./css/show.css?v=201608337" /> -->
 <link rel="stylesheet" type="text/css" charset="utf-8" href="./resource/show.css?v=201608337" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4101765acbaca6291e5cfcbeaa89f81a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <body>
 <script type="text/javascript">
@@ -117,6 +126,7 @@
                         </div>  
                     </div>
                     <?php } ?>
+
                 </div>
                 <div class="line"></div>
             </div>
@@ -166,6 +176,6 @@
         ]);
     });
 </script>
-<!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261805651'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261805651%26online%3D1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+<!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261805651'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261805651' type='text/javascript'%3E%3C/script%3E"));</script> -->
 </body>
 </html>
