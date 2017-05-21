@@ -10,7 +10,14 @@ define(function(require, exports, module) {
 
     function eventBind() {
         dom.button.bind('tap', function () {
-            var url = './index.php?r=dream';
+            var url;
+            var userId = window.taskId;
+            var url;
+            if (userId) {
+                url = 'http://h5.ruyiso.com/qmkj/index.php?r=dream/index/userId/' + window.taskId;
+            } else {
+                url = 'http://h5.ruyiso.com/qmkj/index.php?r=dream';
+            }
             // url += '/code/1/openId/1';
             window.location.href = url;
         });

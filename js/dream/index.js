@@ -21,7 +21,7 @@ define(function(require, exports, module) {
             nickname: window.userInfo.nickname || '匿名网友',
             headimgurl: window.userInfo.headimgurl || 'http://h5.ruyiso.com/qmkj/images/heart.png',
             dream: txt,
-            userId: window.userId || window.userInfo.openId,
+            userId: window.taskId || window.userId || window.userInfo.openId,
             startTime: new Date().getTime(),
             sex: window.userInfo.sex || 0
         };
@@ -86,10 +86,10 @@ define(function(require, exports, module) {
         });
     }
     function shareInits (type) {
-        var userId = window.userId;
+        var userId = window.taskId;
         var url;
         if (userId) {
-            url = 'http://h5.ruyiso.com/qmkj/index.php?r=dream/share/userId/' + window.userId;
+            url = 'http://h5.ruyiso.com/qmkj/index.php?r=dream/share/userId/' + window.taskId;
         } else {
             url = 'http://h5.ruyiso.com/qmkj/index.php?r=dream';
         }

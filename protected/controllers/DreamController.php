@@ -37,43 +37,26 @@ class DreamController extends Controller {
         $signPackage = $sdk->getSignPackage();
         $returnUrl = Yii::app()->request->url;
 
-        // if (!isset($_GET['code']) || empty($_GET['code'])) {
         if ($userInfo == false) {
             $this->redirect($this->createUrl("dream/login", array(
                 "returnUrl" => urlencode($returnUrl),
             )));
             exit;
         }
-        // $userInfo = $user->getToken();
         $userId = isset($_GET['userId']) ? $_GET['userId'] : '';
-        // $userInfo = array(
-        //     "userId" => isset($_GET['userId']) ? $_GET['userId'] : '',
-        //     "openId" => $_GET['openId']
-        // );
-        // var_dump($userInfo->id);
 
-        // $dreamItem = Dream::model()->find('openId=:openId and userId=:userId', array(
-        //     ':openId' => $userInfo->openId,
-        //     ':userId' => $userId
-        // ));
         $dreamItem2 = Dream::model()->find('openId=:openId and userId=:userId', array(
             ':openId' => $userInfo->openId,
             ':userId' => $userInfo->openId
         ));
-        // var_dump($dreamItem2);
-        // exit();
-        // if ($dreamItem2 && !$userId) {
-        //     $this->redirect($this->createUrl("dream/index", array(
-        //         "userId" => urlencode($dreamItem2->userId),
-        //     )));
-        //     exit;
-        // }
+
 
         if (!$dreamItem2) {
             $this->renderPartial('dream', array(
                 "signPackage" => CJSON::encode($signPackage),
                 "user" => CJSON::encode($userInfo),
-                "userId" => $userInfo->openId
+                "userId" => $userInfo->openId,
+                "taskId" => $userId
             ));
         } else {
             $dreamList = Dream::model()->findAll('userId=:userId', array(
@@ -206,6 +189,7 @@ class DreamController extends Controller {
             "signPackage" => CJSON::encode($signPackage),
             "user" => CJSON::encode($userInfo),
             "userId" => $userId,
+            "taskId" => isset($_GET['userId']) ? $_GET['userId'] : '',
             "dreamItem" => $dreamItem,
             "time" => $time
         ));
